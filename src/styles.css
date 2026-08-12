@@ -1,11 +1,7 @@
-/* スタイルシート（プレースホルダー） */
-:root {
-  --color-bg: #fff;
-  --color-text: #000;
-}
-
-body {
-  margin: 0;
-  background-color: var(--color-bg);
-  color: var(--color-text);
-}
+/*
+ * メインスタイルシート
+ * デザイントークン（CSS変数）とリセットCSSを読み込み、共通のベーススタイルを適用する。
+ * メインウィンドウ・表示ウィンドウの双方から参照する。
+ */
+@import './styles/tokens.css';
+@import './styles/reset.css';

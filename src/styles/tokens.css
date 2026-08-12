@@ -1,0 +1,80 @@
+/*
+ * デザイントークン（CSS変数）
+ * メインウィンドウ・表示ウィンドウの双方から参照する共通のカラー・スペーシング・
+ * フォントサイズ等を定義する。既定パレットはコントラスト比4.5:1以上を満たす。
+ *
+ * テーマ切替は `<html data-theme="light|dark">` で行う（既定はライト）。
+ * 路線カラーは `--line-color` / `--line-color-text` を実行時にJS側（src/theme.js）
+ * から上書きすることで、路線カラー連動テーマに対応する。
+ */
+
+:root {
+  color-scheme: light;
+
+  /* カラー：背景・面 */
+  --color-bg: #ffffff;
+  --color-surface: #f5f5f7;
+  --color-border: #c7c7c7;
+
+  /* カラー：文字 */
+  --color-text: #1a1a1a;
+  --color-text-secondary: #4b4b4b;
+
+  /* カラー：状態 */
+  --color-accent: #1d4ed8;
+  --color-on-accent: #ffffff;
+  --color-danger: #b3261e;
+  --color-on-danger: #ffffff;
+  --color-success: #166534;
+  --color-on-success: #ffffff;
+
+  /* 路線カラー：JS側（setLineColor）から動的に注入される。未設定時はアクセント色を使う */
+  --line-color: var(--color-accent);
+  --line-color-text: var(--color-on-accent);
+
+  /* スペーシング */
+  --space-2xs: 2px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* フォント */
+  --font-family-base:
+    'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.25rem;
+  --font-size-lg: 1.75rem;
+  --font-size-xl: 2.5rem;
+  --font-size-2xl: 4rem;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --line-height-base: 1.5;
+
+  /* 形状 */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --border-width: 1px;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-bg: #121212;
+  --color-surface: #1e1e1e;
+  --color-border: #3a3a3a;
+
+  --color-text: #f5f5f5;
+  --color-text-secondary: #c7c7c7;
+
+  --color-accent: #6ea8fe;
+  --color-on-accent: #0b1220;
+  --color-danger: #ff8a80;
+  --color-on-danger: #2a0a08;
+  --color-success: #7fd894;
+  --color-on-success: #06210c;
+}

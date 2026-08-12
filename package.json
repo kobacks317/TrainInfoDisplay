@@ -13,6 +13,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
+    "seed": "node scripts/seed.js",
     "prepare": "husky"
   },
   "devDependencies": {

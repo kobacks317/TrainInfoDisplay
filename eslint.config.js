@@ -28,6 +28,15 @@ export default [
     },
   },
   {
+    // Node.jsで実行する開発用スクリプト（npm scripts経由）
+    files: ['scripts/**/*.js'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
+  {
     files: ['**/*.json'],
     ignores: ['package-lock.json'],
     plugins: { json },

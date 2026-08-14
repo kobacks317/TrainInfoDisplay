@@ -41,7 +41,9 @@ export function getNextLanguageCode(languages, currentLanguageCode) {
   if (active.length === 0) {
     throw new Error('巡回表示可能な言語（isActive=true）がありません');
   }
-  const currentIndex = active.findIndex((language) => language.languageCode === currentLanguageCode);
+  const currentIndex = active.findIndex(
+    (language) => language.languageCode === currentLanguageCode,
+  );
   const nextIndex = currentIndex === -1 ? 0 : (currentIndex + 1) % active.length;
   return active[nextIndex].languageCode;
 }

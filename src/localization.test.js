@@ -42,7 +42,15 @@ describe('getDefaultLanguage', () => {
   });
 
   it('既定言語が無ければ例外を投げる', () => {
-    const noDefault = [{ languageCode: 'en', displayName: 'English', sortOrder: 1, isDefault: false, isActive: true }];
+    const noDefault = [
+      {
+        languageCode: 'en',
+        displayName: 'English',
+        sortOrder: 1,
+        isDefault: false,
+        isActive: true,
+      },
+    ];
     expect(() => getDefaultLanguage(noDefault)).toThrow();
   });
 });
@@ -100,7 +108,13 @@ describe('t', () => {
   it('既定言語の訳文も無ければkeyCodeを返す', () => {
     const onlyEnKeys = [{ textKeyId: 3, keyCode: 'notice.title.sample', category: 'notice' }];
     const onlyEnTexts = [
-      { localizedTextId: 10, textKeyId: 3, languageCode: 'en', textValue: 'Sample', isReviewed: true },
+      {
+        localizedTextId: 10,
+        textKeyId: 3,
+        languageCode: 'en',
+        textValue: 'Sample',
+        isReviewed: true,
+      },
     ];
     const onFallback = vi.fn();
     expect(t(3, 'fr', onlyEnKeys, onlyEnTexts, languages, { onFallback })).toBe(
@@ -119,7 +133,10 @@ describe('t', () => {
 });
 
 describe('findMissingDefaultTranslations / assertDefaultTranslationsComplete', () => {
-  const keysWithGap = [...textKeys, { textKeyId: 3, keyCode: 'notice.title.sample', category: 'notice' }];
+  const keysWithGap = [
+    ...textKeys,
+    { textKeyId: 3, keyCode: 'notice.title.sample', category: 'notice' },
+  ];
 
   it('既定言語の訳文が無いキーを検出する', () => {
     const missing = findMissingDefaultTranslations(keysWithGap, localizedTexts, languages);
@@ -127,7 +144,9 @@ describe('findMissingDefaultTranslations / assertDefaultTranslationsComplete', (
   });
 
   it('欠落が無ければassertDefaultTranslationsCompleteは例外を投げない', () => {
-    expect(() => assertDefaultTranslationsComplete(textKeys, localizedTexts, languages)).not.toThrow();
+    expect(() =>
+      assertDefaultTranslationsComplete(textKeys, localizedTexts, languages),
+    ).not.toThrow();
   });
 
   it('欠落があればassertDefaultTranslationsCompleteは例外を投げる', () => {
@@ -139,9 +158,9 @@ describe('findMissingDefaultTranslations / assertDefaultTranslationsComplete', (
 
 describe('findUntranslatedKeys', () => {
   it('指定言語のLOCALIZED_TEXTが存在しないキーを抽出する', () => {
-    expect(findUntranslatedKeys('en', textKeys, localizedTexts).map((key) => key.textKeyId)).toEqual([
-      2,
-    ]);
+    expect(
+      findUntranslatedKeys('en', textKeys, localizedTexts).map((key) => key.textKeyId),
+    ).toEqual([2]);
   });
 
   it('全キーに訳文があれば空配列を返す', () => {

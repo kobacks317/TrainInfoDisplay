@@ -1,0 +1,79 @@
+[
+  {
+    "segmentId": 1,
+    "trainId": 1,
+    "lineId": 1,
+    "trainTypeId": 1,
+    "segmentOrder": 1,
+    "fromStationId": 1,
+    "toStationId": 4,
+    "direction": "下り",
+    "isThroughService": false
+  },
+  {
+    "segmentId": 2,
+    "trainId": 2,
+    "lineId": 1,
+    "trainTypeId": 3,
+    "segmentOrder": 1,
+    "fromStationId": 1,
+    "toStationId": 4,
+    "direction": "下り",
+    "isThroughService": false
+  },
+  {
+    "segmentId": 3,
+    "trainId": 3,
+    "lineId": 2,
+    "trainTypeId": 1,
+    "segmentOrder": 1,
+    "fromStationId": 7,
+    "toStationId": 1,
+    "direction": "上り",
+    "isThroughService": false
+  },
+  {
+    "segmentId": 4,
+    "trainId": 3,
+    "lineId": 1,
+    "trainTypeId": 2,
+    "segmentOrder": 2,
+    "fromStationId": 1,
+    "toStationId": 3,
+    "direction": "下り",
+    "isThroughService": true
+  },
+  {
+    "segmentId": 5,
+    "trainId": 3,
+    "lineId": 3,
+    "trainTypeId": 5,
+    "segmentOrder": 3,
+    "fromStationId": 3,
+    "toStationId": 9,
+    "direction": "下り",
+    "isThroughService": true
+  },
+  {
+    "segmentId": 6,
+    "trainId": 4,
+    "lineId": 3,
+    "trainTypeId": 4,
+    "segmentOrder": 1,
+    "fromStationId": 9,
+    "toStationId": 3,
+    "direction": "上り",
+    "isThroughService": false
+  },
+  {
+    "segmentId": 7,
+    "trainId": 4,
+    "lineId": 1,
+    "trainTypeId": 1,
+    "segmentOrder": 2,
+    "fromStationId": 3,
+    "toStationId": 1,
+    "direction": "上り",
+    "isThroughService": true
+  }
+]

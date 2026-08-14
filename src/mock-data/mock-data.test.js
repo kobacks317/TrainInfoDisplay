@@ -11,6 +11,10 @@ import {
   platforms,
   stationNumbers,
   stations,
+  trainLineSegments,
+  trainStops,
+  trainTypes,
+  trains,
   transferInfo,
 } from './index.js';
 
@@ -248,5 +252,168 @@ describe('PLATFORM_FACILITY', () => {
 
   it('platformIdがPLATFORMに存在する', () => {
     expectForeignKey(platformFacilities, 'platformId', platforms, 'platformId');
+  });
+});
+
+describe('TRAIN_TYPE', () => {
+  it('必須プロパティを備える', () => {
+    expectRequiredFields(trainTypes, {
+      trainTypeId: 'number',
+      operatorId: 'number',
+      typeCode: 'string',
+      nameTextKeyId: 'number',
+      typeColor: 'string',
+      textColor: 'string',
+      priority: 'number',
+    });
+  });
+
+  it('trainTypeIdが一意である', () => {
+    expectUniquePrimaryKey(trainTypes, 'trainTypeId');
+  });
+
+  it('operatorIdがOPERATORに存在する', () => {
+    expectForeignKey(trainTypes, 'operatorId', operators, 'operatorId');
+  });
+
+  it('3種類以上のサンプルを含み、種別カラーが設定されている', () => {
+    expect(trainTypes.length).toBeGreaterThanOrEqual(3);
+    for (const trainType of trainTypes) {
+      expect(trainType.typeColor, `trainTypeId=${trainType.trainTypeId} のtypeColor`).toMatch(/^#/);
+    }
+  });
+});
+
+describe('TRAIN', () => {
+  it('必須プロパティを備える', () => {
+    expectRequiredFields(trains, {
+      trainId: 'number',
+      operatorId: 'number',
+      trainTypeId: 'number',
+      destinationStationId: 'number',
+      trainNumber: 'string',
+      operationDays: 'string',
+    });
+  });
+
+  it('trainIdが一意である', () => {
+    expectUniquePrimaryKey(trains, 'trainId');
+  });
+
+  it('trainNumberが一意である', () => {
+    const numbers = trains.map((t) => t.trainNumber);
+    expect(new Set(numbers).size).toBe(numbers.length);
+  });
+
+  it('operatorId/trainTypeId/destinationStationIdがそれぞれ対応するテーブルに存在する', () => {
+    expectForeignKey(trains, 'operatorId', operators, 'operatorId');
+    expectForeignKey(trains, 'trainTypeId', trainTypes, 'trainTypeId');
+    expectForeignKey(trains, 'destinationStationId', stations, 'stationId');
+  });
+});
+
+describe('TRAIN_LINE_SEGMENT', () => {
+  it('必須プロパティを備える', () => {
+    expectRequiredFields(trainLineSegments, {
+      segmentId: 'number',
+      trainId: 'number',
+      lineId: 'number',
+      trainTypeId: 'number',
+      segmentOrder: 'number',
+      fromStationId: 'number',
+      toStationId: 'number',
+      direction: 'string',
+      isThroughService: 'boolean',
+    });
+  });
+
+  it('segmentIdが一意である', () => {
+    expectUniquePrimaryKey(trainLineSegments, 'segmentId');
+  });
+
+  it('trainId/lineId/trainTypeId/fromStationId/toStationIdがそれぞれ対応するテーブルに存在する', () => {
+    expectForeignKey(trainLineSegments, 'trainId', trains, 'trainId');
+    expectForeignKey(trainLineSegments, 'lineId', lines, 'lineId');
+    expectForeignKey(trainLineSegments, 'trainTypeId', trainTypes, 'trainTypeId');
+    expectForeignKey(trainLineSegments, 'fromStationId', stations, 'stationId');
+    expectForeignKey(trainLineSegments, 'toStationId', stations, 'stationId');
+  });
+
+  it('直通運転しない列車（区間1つ）のサンプルを含む', () => {
+    const segmentCounts = new Map();
+    for (const segment of trainLineSegments) {
+      segmentCounts.set(segment.trainId, (segmentCounts.get(segment.trainId) ?? 0) + 1);
+    }
+    const nonThroughTrains = [...segmentCounts.values()].filter((count) => count === 1);
+    expect(nonThroughTrains.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it('2路線以上にまたがる直通列車のサンプルを含む', () => {
+    const linesByTrain = new Map();
+    for (const segment of trainLineSegments) {
+      const lineIds = linesByTrain.get(segment.trainId) ?? new Set();
+      lineIds.add(segment.lineId);
+      linesByTrain.set(segment.trainId, lineIds);
+    }
+    const throughTrains = [...linesByTrain.values()].filter((lineIds) => lineIds.size >= 2);
+    expect(throughTrains.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it('同一列車内で区間ごとに種別が変わるサンプルを含む', () => {
+    const typesByTrain = new Map();
+    for (const segment of trainLineSegments) {
+      const typeIds = typesByTrain.get(segment.trainId) ?? new Set();
+      typeIds.add(segment.trainTypeId);
+      typesByTrain.set(segment.trainId, typeIds);
+    }
+    const trainsWithTypeChange = [...typesByTrain.values()].filter((typeIds) => typeIds.size >= 2);
+    expect(trainsWithTypeChange.length).toBeGreaterThanOrEqual(1);
+  });
+});
+
+describe('TRAIN_STOP', () => {
+  it('必須プロパティを備える', () => {
+    expectRequiredFields(trainStops, {
+      trainStopId: 'number',
+      trainId: 'number',
+      lineId: 'number',
+      stationId: 'number',
+      sequence: 'number',
+      stopType: 'string',
+    });
+  });
+
+  it('trainStopIdが一意である', () => {
+    expectUniquePrimaryKey(trainStops, 'trainStopId');
+  });
+
+  it('trainId/lineId/stationId/platformIdがそれぞれ対応するテーブルに存在する', () => {
+    expectForeignKey(trainStops, 'trainId', trains, 'trainId');
+    expectForeignKey(trainStops, 'lineId', lines, 'lineId');
+    expectForeignKey(trainStops, 'stationId', stations, 'stationId');
+    expectForeignKey(trainStops, 'platformId', platforms, 'platformId', true);
+  });
+
+  it('stopTypeはSTOPまたはPASSのいずれかである', () => {
+    for (const stop of trainStops) {
+      expect(['STOP', 'PASS']).toContain(stop.stopType);
+    }
+  });
+
+  it("stop_type='PASS'（通過駅）のサンプルを含む", () => {
+    expect(trainStops.some((stop) => stop.stopType === 'PASS')).toBe(true);
+  });
+
+  it('列車ごとにsequenceが重複なく連番である', () => {
+    const stopsByTrain = new Map();
+    for (const stop of trainStops) {
+      const stops = stopsByTrain.get(stop.trainId) ?? [];
+      stops.push(stop);
+      stopsByTrain.set(stop.trainId, stops);
+    }
+    for (const [trainId, stops] of stopsByTrain) {
+      const sequences = stops.map((s) => s.sequence).sort((a, b) => a - b);
+      expect(sequences, `trainId=${trainId} のsequence`).toEqual(stops.map((_, i) => i + 1));
+    }
   });
 });

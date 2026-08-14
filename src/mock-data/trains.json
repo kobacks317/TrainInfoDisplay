@@ -1,0 +1,44 @@
+[
+  {
+    "trainId": 1,
+    "operatorId": 1,
+    "trainTypeId": 1,
+    "destinationStationId": 4,
+    "trainNumber": "1001",
+    "operationDays": "平日",
+    "sourceSystem": "mock",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
+  },
+  {
+    "trainId": 2,
+    "operatorId": 1,
+    "trainTypeId": 3,
+    "destinationStationId": 4,
+    "trainNumber": "5001",
+    "operationDays": "毎日",
+    "sourceSystem": "mock",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
+  },
+  {
+    "trainId": 3,
+    "operatorId": 1,
+    "trainTypeId": 2,
+    "destinationStationId": 9,
+    "trainNumber": "3001A",
+    "viaTextKeyId": 9701,
+    "operationDays": "毎日",
+    "sourceSystem": "mock",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
+  },
+  {
+    "trainId": 4,
+    "operatorId": 2,
+    "trainTypeId": 4,
+    "destinationStationId": 1,
+    "trainNumber": "M-201",
+    "viaTextKeyId": 9702,
+    "operationDays": "毎日",
+    "sourceSystem": "mock",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
+  }
+]

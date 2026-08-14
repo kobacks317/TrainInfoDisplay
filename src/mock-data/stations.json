@@ -1,0 +1,83 @@
+[
+  {
+    "stationId": 1,
+    "stationCode": "STN-CHUO",
+    "nameTextKeyId": 9201,
+    "latitude": 35.681236,
+    "longitude": 139.767125,
+    "sourceSystem": "mock",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
+  },
+  {
+    "stationId": 2,
+    "stationCode": "STN-TOU",
+    "nameTextKeyId": 9202,
+    "latitude": 35.6952,
+    "longitude": 139.7826,
+    "sourceSystem": "mock",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
+  },
+  {
+    "stationId": 3,
+    "stationCode": "STN-MINATO",
+    "nameTextKeyId": 9203,
+    "latitude": 35.6554,
+    "longitude": 139.7511,
+    "sourceSystem": "mock",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
+  },
+  {
+    "stationId": 4,
+    "stationCode": "STN-SAKURADAI",
+    "nameTextKeyId": 9204,
+    "latitude": 35.6321,
+    "longitude": 139.7245,
+    "sourceSystem": "mock",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
+  },
+  {
+    "stationId": 5,
+    "stationCode": "STN-MIDORIGAOKA",
+    "nameTextKeyId": 9205,
+    "latitude": 35.7012,
+    "longitude": 139.7401,
+    "sourceSystem": "mock",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
+  },
+  {
+    "stationId": 6,
+    "stationCode": "STN-SAKURANAMIKI",
+    "nameTextKeyId": 9206,
+    "latitude": 35.7145,
+    "longitude": 139.7203,
+    "sourceSystem": "mock",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
+  },
+  {
+    "stationId": 7,
+    "stationCode": "STN-HANAMIDAI",
+    "nameTextKeyId": 9207,
+    "latitude": 35.7268,
+    "longitude": 139.7012,
+    "sourceSystem": "mock",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
+  },
+  {
+    "stationId": 8,
+    "stationCode": "STN-HATOBA",
+    "nameTextKeyId": 9208,
+    "latitude": 35.6402,
+    "longitude": 139.7789,
+    "sourceSystem": "mock",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
+  },
+  {
+    "stationId": 9,
+    "stationCode": "STN-MIRAIHAMA",
+    "nameTextKeyId": 9209,
+    "latitude": 35.6211,
+    "longitude": 139.7987,
+    "sourceSystem": "mock",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
+  }
+]

@@ -1,0 +1,119 @@
+[
+  {
+    "stationNumberId": 1,
+    "lineStationId": 1,
+    "symbolDesignId": 2,
+    "prefix": "TO",
+    "number": "01",
+    "lineColor": "#0072BC",
+    "displayOrder": 1
+  },
+  {
+    "stationNumberId": 2,
+    "lineStationId": 1,
+    "symbolDesignId": 2,
+    "prefix": "MR",
+    "number": "01",
+    "lineColor": "#F39800",
+    "displayOrder": 2
+  },
+  {
+    "stationNumberId": 3,
+    "lineStationId": 2,
+    "symbolDesignId": 2,
+    "prefix": "TO",
+    "number": "02",
+    "lineColor": "#0072BC",
+    "displayOrder": 1
+  },
+  {
+    "stationNumberId": 4,
+    "lineStationId": 3,
+    "symbolDesignId": 2,
+    "prefix": "TO",
+    "number": "03",
+    "lineColor": "#0072BC",
+    "displayOrder": 1
+  },
+  {
+    "stationNumberId": 5,
+    "lineStationId": 4,
+    "symbolDesignId": 2,
+    "prefix": "TO",
+    "number": "04",
+    "lineColor": "#0072BC",
+    "displayOrder": 1
+  },
+  {
+    "stationNumberId": 6,
+    "lineStationId": 5,
+    "symbolDesignId": 2,
+    "prefix": "TB",
+    "number": "01",
+    "lineColor": "#009944",
+    "displayOrder": 1
+  },
+  {
+    "stationNumberId": 7,
+    "lineStationId": 6,
+    "symbolDesignId": 2,
+    "prefix": "TB",
+    "number": "02",
+    "lineColor": "#009944",
+    "displayOrder": 1
+  },
+  {
+    "stationNumberId": 8,
+    "lineStationId": 7,
+    "symbolDesignId": 2,
+    "prefix": "TB",
+    "number": "03",
+    "lineColor": "#009944",
+    "displayOrder": 1
+  },
+  {
+    "stationNumberId": 9,
+    "lineStationId": 8,
+    "symbolDesignId": 2,
+    "prefix": "TB",
+    "number": "04",
+    "lineColor": "#009944",
+    "displayOrder": 1
+  },
+  {
+    "stationNumberId": 10,
+    "lineStationId": 9,
+    "symbolDesignId": 2,
+    "prefix": "M1",
+    "number": "01",
+    "lineColor": "#F39800",
+    "displayOrder": 1
+  },
+  {
+    "stationNumberId": 11,
+    "lineStationId": 10,
+    "symbolDesignId": 2,
+    "prefix": "M1",
+    "number": "02",
+    "lineColor": "#F39800",
+    "displayOrder": 1
+  },
+  {
+    "stationNumberId": 12,
+    "lineStationId": 11,
+    "symbolDesignId": 2,
+    "prefix": "M1",
+    "number": "03",
+    "lineColor": "#F39800",
+    "displayOrder": 1
+  },
+  {
+    "stationNumberId": 13,
+    "lineStationId": 12,
+    "symbolDesignId": 2,
+    "prefix": "M1",
+    "number": "04",
+    "lineColor": "#F39800",
+    "displayOrder": 1
+  }
+]

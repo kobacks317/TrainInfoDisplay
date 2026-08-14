@@ -1,0 +1,63 @@
+[
+  {
+    "platformId": 1,
+    "stationId": 1,
+    "platformNo": "1",
+    "directionTextKeyId": 9401,
+    "hasPlatformDoor": true,
+    "carPositions": 10
+  },
+  {
+    "platformId": 2,
+    "stationId": 1,
+    "platformNo": "2",
+    "directionTextKeyId": 9402,
+    "hasPlatformDoor": true,
+    "carPositions": 8
+  },
+  {
+    "platformId": 3,
+    "stationId": 2,
+    "platformNo": "1",
+    "directionTextKeyId": 9403,
+    "hasPlatformDoor": false,
+    "carPositions": 10
+  },
+  {
+    "platformId": 4,
+    "stationId": 3,
+    "platformNo": "1",
+    "directionTextKeyId": 9401,
+    "hasPlatformDoor": true,
+    "carPositions": 10
+  },
+  {
+    "platformId": 5,
+    "stationId": 3,
+    "platformNo": "2",
+    "directionTextKeyId": 9404,
+    "hasPlatformDoor": true,
+    "carPositions": 8
+  },
+  {
+    "platformId": 6,
+    "stationId": 4,
+    "platformNo": "1",
+    "hasPlatformDoor": false,
+    "carPositions": 10
+  },
+  {
+    "platformId": 7,
+    "stationId": 7,
+    "platformNo": "1",
+    "hasPlatformDoor": false,
+    "carPositions": 6
+  },
+  {
+    "platformId": 8,
+    "stationId": 9,
+    "platformNo": "1",
+    "hasPlatformDoor": true,
+    "carPositions": 8
+  }
+]

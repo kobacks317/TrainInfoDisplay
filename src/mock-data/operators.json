@@ -1,0 +1,16 @@
+[
+  {
+    "operatorId": 1,
+    "operatorCode": "TOU",
+    "nameTextKeyId": 9001,
+    "sourceSystem": "mock",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
+  },
+  {
+    "operatorId": 2,
+    "operatorCode": "MRT",
+    "nameTextKeyId": 9002,
+    "sourceSystem": "mock",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
+  }
+]

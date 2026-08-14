@@ -1,0 +1,68 @@
+[
+  {
+    "facilityId": 1,
+    "platformId": 1,
+    "facilityType": "出口",
+    "labelTextKeyId": 9501,
+    "nearCarNo": 3,
+    "nearDoorNo": 2,
+    "posX": 12.5,
+    "posY": 80.0,
+    "barrierFree": false
+  },
+  {
+    "facilityId": 2,
+    "platformId": 1,
+    "facilityType": "階段",
+    "labelTextKeyId": 9502,
+    "nearCarNo": 5,
+    "nearDoorNo": 1,
+    "posX": 45.0,
+    "posY": 50.0,
+    "barrierFree": false
+  },
+  {
+    "facilityId": 3,
+    "platformId": 1,
+    "facilityType": "EV",
+    "labelTextKeyId": 9503,
+    "nearCarNo": 1,
+    "nearDoorNo": 1,
+    "posX": 5.0,
+    "posY": 20.0,
+    "barrierFree": true
+  },
+  {
+    "facilityId": 4,
+    "platformId": 4,
+    "facilityType": "出口",
+    "labelTextKeyId": 9504,
+    "nearCarNo": 2,
+    "nearDoorNo": 3,
+    "posX": 20.0,
+    "posY": 75.0,
+    "barrierFree": false
+  },
+  {
+    "facilityId": 5,
+    "platformId": 4,
+    "facilityType": "ES",
+    "labelTextKeyId": 9505,
+    "nearCarNo": 4,
+    "nearDoorNo": 2,
+    "posX": 60.0,
+    "posY": 40.0,
+    "barrierFree": true
+  },
+  {
+    "facilityId": 6,
+    "platformId": 8,
+    "facilityType": "出口",
+    "labelTextKeyId": 9506,
+    "nearCarNo": 1,
+    "nearDoorNo": 1,
+    "posX": 10.0,
+    "posY": 90.0,
+    "barrierFree": true
+  }
+]

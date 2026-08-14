@@ -1,0 +1,32 @@
+[
+  {
+    "lineSymbolId": 1,
+    "lineId": 1,
+    "symbolDesignId": 1,
+    "symbolText": "TO",
+    "lineColor": "#0072BC",
+    "textColor": "#FFFFFF",
+    "displayOrder": 1,
+    "note": "東央本線"
+  },
+  {
+    "lineSymbolId": 2,
+    "lineId": 2,
+    "symbolDesignId": 1,
+    "symbolText": "TB",
+    "lineColor": "#009944",
+    "textColor": "#FFFFFF",
+    "displayOrder": 1,
+    "note": "東央支線"
+  },
+  {
+    "lineSymbolId": 3,
+    "lineId": 3,
+    "symbolDesignId": 2,
+    "symbolText": "M1",
+    "lineColor": "#F39800",
+    "textColor": "#FFFFFF",
+    "displayOrder": 1,
+    "note": "みらい1号線"
+  }
+]

@@ -1,6 +1,9 @@
 // 路線・駅マスタのモックデータをまとめて参照するためのエントリポイント
 // 参照: docs/01_requirements.md §7.2, src/types/station.js, src/types/common.js
 
+import languages from './languages.json';
+import textKeys from './text-keys.json';
+import localizedTexts from './localized-texts.json';
 import operators from './operators.json';
 import lines from './lines.json';
 import lineSymbols from './line-symbols.json';
@@ -19,6 +22,9 @@ import cars from './cars.json';
 import carFacilities from './car-facilities.json';
 
 export {
+  languages,
+  textKeys,
+  localizedTexts,
   operators,
   lines,
   lineSymbols,

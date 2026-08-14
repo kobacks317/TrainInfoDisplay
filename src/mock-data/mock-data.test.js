@@ -2,18 +2,22 @@
 // 参照: docs/01_requirements.md §7.2, src/types/station.js, src/types/common.js
 
 import { describe, expect, it } from 'vitest';
+import { findMissingDefaultTranslations, listActiveLanguages } from '../localization.js';
 import {
   carFacilities,
   cars,
   formations,
+  languages,
   lineStations,
   lineSymbols,
   lines,
+  localizedTexts,
   operators,
   platformFacilities,
   platforms,
   stationNumbers,
   stations,
+  textKeys,
   trainLineSegments,
   trainStops,
   trainTypes,
@@ -532,5 +536,127 @@ describe('CAR_FACILITY', () => {
     expect(types.has('トイレ')).toBe(true);
     expect(types.has('車椅子スペース')).toBe(true);
     expect(types.has('WiFi')).toBe(true);
+  });
+});
+
+describe('LANGUAGE', () => {
+  it('必須プロパティを備える', () => {
+    expectRequiredFields(languages, {
+      languageCode: 'string',
+      displayName: 'string',
+      sortOrder: 'number',
+      isDefault: 'boolean',
+      isActive: 'boolean',
+    });
+  });
+
+  it('languageCodeが一意である', () => {
+    const codes = languages.map((language) => language.languageCode);
+    expect(new Set(codes).size).toBe(codes.length);
+  });
+
+  it('既定言語（isDefault=true）が1件だけ存在する', () => {
+    expect(languages.filter((language) => language.isDefault).length).toBe(1);
+  });
+
+  it('無効な言語（isActive=false）のサンプルを含む（巡回対象外の検証用）', () => {
+    expect(languages.some((language) => !language.isActive)).toBe(true);
+  });
+
+  it('listActiveLanguagesは無効な言語を巡回対象から除外する', () => {
+    const active = listActiveLanguages(languages);
+    expect(active.every((language) => language.isActive)).toBe(true);
+    expect(active.length).toBeLessThan(languages.length);
+  });
+});
+
+describe('TEXT_KEY', () => {
+  it('必須プロパティを備える', () => {
+    expectRequiredFields(textKeys, {
+      textKeyId: 'number',
+      keyCode: 'string',
+      category: 'string',
+    });
+  });
+
+  it('textKeyIdが一意である', () => {
+    expectUniquePrimaryKey(textKeys, 'textKeyId');
+  });
+
+  it('keyCodeが一意である', () => {
+    const codes = textKeys.map((key) => key.keyCode);
+    expect(new Set(codes).size).toBe(codes.length);
+  });
+});
+
+describe('LOCALIZED_TEXT', () => {
+  it('必須プロパティを備える', () => {
+    expectRequiredFields(localizedTexts, {
+      localizedTextId: 'number',
+      textKeyId: 'number',
+      languageCode: 'string',
+      textValue: 'string',
+      isReviewed: 'boolean',
+    });
+  });
+
+  it('localizedTextIdが一意である', () => {
+    expectUniquePrimaryKey(localizedTexts, 'localizedTextId');
+  });
+
+  it('textKeyId/languageCodeがそれぞれ対応するテーブルに存在する', () => {
+    expectForeignKey(localizedTexts, 'textKeyId', textKeys, 'textKeyId');
+    const languageCodes = new Set(languages.map((language) => language.languageCode));
+    for (const localizedText of localizedTexts) {
+      expect(
+        languageCodes.has(localizedText.languageCode),
+        `languageCode=${localizedText.languageCode} が LANGUAGE に存在しない`,
+      ).toBe(true);
+    }
+  });
+
+  it('同一textKeyId・languageCodeの組み合わせが重複しない', () => {
+    const combos = localizedTexts.map((lt) => `${lt.textKeyId}:${lt.languageCode}`);
+    expect(new Set(combos).size).toBe(combos.length);
+  });
+
+  it('既定言語(ja)の訳文が全TEXT_KEYに存在する（受け入れ条件: 既定言語未翻訳の検出対象がない）', () => {
+    expect(findMissingDefaultTranslations(textKeys, localizedTexts, languages)).toEqual([]);
+  });
+
+  it('一部言語のみ未翻訳のサンプルを含む（未翻訳抽出のデモ用）', () => {
+    const zhTexts = localizedTexts.filter((lt) => lt.languageCode === 'zh-Hans');
+    expect(zhTexts.length).toBeGreaterThan(0);
+    expect(zhTexts.length).toBeLessThan(textKeys.length);
+  });
+});
+
+describe('既存モックデータの *TextKeyId 参照整合性', () => {
+  const tablesWithTextKeyRefs = [
+    { name: 'OPERATOR', records: operators },
+    { name: 'LINE', records: lines },
+    { name: 'STATION', records: stations },
+    { name: 'TRANSFER_INFO', records: transferInfo },
+    { name: 'PLATFORM', records: platforms },
+    { name: 'PLATFORM_FACILITY', records: platformFacilities },
+    { name: 'TRAIN_TYPE', records: trainTypes },
+    { name: 'TRAIN', records: trains },
+    { name: 'FORMATION', records: formations },
+    { name: 'CAR_FACILITY', records: carFacilities },
+  ];
+
+  it('各テーブルの *TextKeyId フィールドが参照するTEXT_KEYが実在する', () => {
+    const textKeyIds = new Set(textKeys.map((key) => key.textKeyId));
+    for (const { name, records } of tablesWithTextKeyRefs) {
+      for (const record of records) {
+        for (const [field, value] of Object.entries(record)) {
+          if (!field.endsWith('TextKeyId') || value === undefined || value === null) continue;
+          expect(
+            textKeyIds.has(value),
+            `${name}.${field}=${value} が TEXT_KEY に存在しない: ${JSON.stringify(record)}`,
+          ).toBe(true);
+        }
+      }
+    }
   });
 });

@@ -28,7 +28,9 @@ function makeSymbolDesign(overrides = {}) {
 describe('generateSymbolSvg', () => {
   it('SVGルート要素とviewBoxを持つマークアップを生成する', () => {
     const svg = generateSymbolSvg(makeSymbolDesign(), { text: 'TO' });
-    expect(svg).toMatch(/^<svg xmlns="http:\/\/www\.w3\.org\/2000\/svg" viewBox="0 0 \d+(\.\d+)? \d+(\.\d+)?"/);
+    expect(svg).toMatch(
+      /^<svg xmlns="http:\/\/www\.w3\.org\/2000\/svg" viewBox="0 0 \d+(\.\d+)? \d+(\.\d+)?"/,
+    );
     expect(svg).toContain('</svg>');
   });
 
@@ -43,9 +45,9 @@ describe('generateSymbolSvg', () => {
   });
 
   it('未対応のshapeを指定するとエラーになる', () => {
-    expect(() =>
-      generateSymbolSvg(makeSymbolDesign({ shape: 'triangle' }), { text: 'X' }),
-    ).toThrow('未対応の形状です');
+    expect(() => generateSymbolSvg(makeSymbolDesign({ shape: 'triangle' }), { text: 'X' })).toThrow(
+      '未対応の形状です',
+    );
   });
 
   it('shapeが指定されていない場合はエラーになる', () => {
@@ -54,7 +56,9 @@ describe('generateSymbolSvg', () => {
 
   it('背景色・文字色のいずれも決定できない場合はエラーになる', () => {
     const design = makeSymbolDesign({ defaultBgColor: undefined, defaultTextColor: undefined });
-    expect(() => generateSymbolSvg(design, { text: 'X' })).toThrow('背景色・文字色を決定できません');
+    expect(() => generateSymbolSvg(design, { text: 'X' })).toThrow(
+      '背景色・文字色を決定できません',
+    );
   });
 
   describe('5種類の形状すべてに対応する', () => {
@@ -111,9 +115,9 @@ describe('generateSymbolSvg', () => {
     });
 
     it('0以下のaspectRatioはエラーになる', () => {
-      expect(() =>
-        generateSymbolSvg(makeSymbolDesign({ aspectRatio: 0 }), { text: 'A' }),
-      ).toThrow('aspectRatio');
+      expect(() => generateSymbolSvg(makeSymbolDesign({ aspectRatio: 0 }), { text: 'A' })).toThrow(
+        'aspectRatio',
+      );
     });
   });
 

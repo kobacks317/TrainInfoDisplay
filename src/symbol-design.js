@@ -143,14 +143,18 @@ export function generateSymbolSvg(symbolDesign, content = {}) {
     throw new Error('symbolDesign.shapeが必要です');
   }
   if (!SYMBOL_SHAPES.includes(symbolDesign.shape)) {
-    throw new Error(`未対応の形状です: ${symbolDesign.shape}（対応形状: ${SYMBOL_SHAPES.join(', ')}）`);
+    throw new Error(
+      `未対応の形状です: ${symbolDesign.shape}（対応形状: ${SYMBOL_SHAPES.join(', ')}）`,
+    );
   }
 
   const text = content.text ?? '';
   const bgColor = content.bgColor ?? symbolDesign.defaultBgColor;
   const textColor = content.textColor ?? symbolDesign.defaultTextColor;
   if (!bgColor || !textColor) {
-    throw new Error('背景色・文字色を決定できません（defaultBgColor/defaultTextColorが未設定です）');
+    throw new Error(
+      '背景色・文字色を決定できません（defaultBgColor/defaultTextColorが未設定です）',
+    );
   }
 
   const { width, height } = resolveDimensions(symbolDesign.aspectRatio);

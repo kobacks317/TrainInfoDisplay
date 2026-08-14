@@ -1,0 +1,98 @@
+[
+  {
+    "lineStationId": 1,
+    "lineId": 1,
+    "stationId": 1,
+    "stationOrder": 1,
+    "distanceKm": 0.0,
+    "standardMinutesFromPrev": 0
+  },
+  {
+    "lineStationId": 2,
+    "lineId": 1,
+    "stationId": 2,
+    "stationOrder": 2,
+    "distanceKm": 3.2,
+    "standardMinutesFromPrev": 4
+  },
+  {
+    "lineStationId": 3,
+    "lineId": 1,
+    "stationId": 3,
+    "stationOrder": 3,
+    "distanceKm": 7.5,
+    "standardMinutesFromPrev": 6
+  },
+  {
+    "lineStationId": 4,
+    "lineId": 1,
+    "stationId": 4,
+    "stationOrder": 4,
+    "distanceKm": 12.1,
+    "standardMinutesFromPrev": 7
+  },
+  {
+    "lineStationId": 5,
+    "lineId": 2,
+    "stationId": 1,
+    "stationOrder": 1,
+    "distanceKm": 0.0,
+    "standardMinutesFromPrev": 0
+  },
+  {
+    "lineStationId": 6,
+    "lineId": 2,
+    "stationId": 5,
+    "stationOrder": 2,
+    "distanceKm": 2.8,
+    "standardMinutesFromPrev": 5
+  },
+  {
+    "lineStationId": 7,
+    "lineId": 2,
+    "stationId": 6,
+    "stationOrder": 3,
+    "distanceKm": 5.4,
+    "standardMinutesFromPrev": 4
+  },
+  {
+    "lineStationId": 8,
+    "lineId": 2,
+    "stationId": 7,
+    "stationOrder": 4,
+    "distanceKm": 8.9,
+    "standardMinutesFromPrev": 6
+  },
+  {
+    "lineStationId": 9,
+    "lineId": 3,
+    "stationId": 1,
+    "stationOrder": 1,
+    "distanceKm": 0.0,
+    "standardMinutesFromPrev": 0
+  },
+  {
+    "lineStationId": 10,
+    "lineId": 3,
+    "stationId": 3,
+    "stationOrder": 2,
+    "distanceKm": 4.6,
+    "standardMinutesFromPrev": 6
+  },
+  {
+    "lineStationId": 11,
+    "lineId": 3,
+    "stationId": 8,
+    "stationOrder": 3,
+    "distanceKm": 9.0,
+    "standardMinutesFromPrev": 7
+  },
+  {
+    "lineStationId": 12,
+    "lineId": 3,
+    "stationId": 9,
+    "stationOrder": 4,
+    "distanceKm": 14.3,
+    "standardMinutesFromPrev": 8
+  }
+]

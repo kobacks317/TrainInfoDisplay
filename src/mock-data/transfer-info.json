@@ -1,0 +1,54 @@
+[
+  {
+    "transferId": 1,
+    "lineStationId": 1,
+    "toLineId": 2,
+    "displayNameTextKeyId": 9301,
+    "operatorNameTextKeyId": 9001,
+    "primaryColor": "#009944",
+    "walkMinutes": 3,
+    "recommendedCarNo": 2,
+    "displayOrder": 1
+  },
+  {
+    "transferId": 2,
+    "lineStationId": 1,
+    "toLineId": 3,
+    "displayNameTextKeyId": 9302,
+    "operatorNameTextKeyId": 9002,
+    "primaryColor": "#F39800",
+    "walkMinutes": 5,
+    "recommendedCarNo": 1,
+    "displayOrder": 2
+  },
+  {
+    "transferId": 3,
+    "lineStationId": 3,
+    "toLineId": 3,
+    "displayNameTextKeyId": 9302,
+    "operatorNameTextKeyId": 9002,
+    "primaryColor": "#F39800",
+    "walkMinutes": 4,
+    "recommendedCarNo": 4,
+    "displayOrder": 1
+  },
+  {
+    "transferId": 4,
+    "lineStationId": 10,
+    "displayNameTextKeyId": 9303,
+    "operatorNameTextKeyId": 9304,
+    "noteTextKeyId": 9305,
+    "primaryColor": "#7F3F98",
+    "walkMinutes": 6,
+    "displayOrder": 2
+  },
+  {
+    "transferId": 5,
+    "lineStationId": 12,
+    "displayNameTextKeyId": 9306,
+    "operatorNameTextKeyId": 9307,
+    "primaryColor": "#00A0E9",
+    "walkMinutes": 8,
+    "displayOrder": 1
+  }
+]

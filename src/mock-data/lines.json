@@ -1,0 +1,32 @@
+[
+  {
+    "lineId": 1,
+    "operatorId": 1,
+    "lineCode": "TOU-MAIN",
+    "nameTextKeyId": 9101,
+    "primaryColor": "#0072BC",
+    "displayOrder": 1,
+    "sourceSystem": "mock",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
+  },
+  {
+    "lineId": 2,
+    "operatorId": 1,
+    "lineCode": "TOU-BRANCH",
+    "nameTextKeyId": 9102,
+    "primaryColor": "#009944",
+    "displayOrder": 2,
+    "sourceSystem": "mock",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
+  },
+  {
+    "lineId": 3,
+    "operatorId": 2,
+    "lineCode": "MRT-1",
+    "nameTextKeyId": 9103,
+    "primaryColor": "#F39800",
+    "displayOrder": 1,
+    "sourceSystem": "mock",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "formationId": 1,
+    "formationCode": "TOU-8000-A",
+    "carCount": 8,
+    "seriesTextKeyId": 9801,
+    "sourceSystem": "mock"
+  },
+  {
+    "formationId": 2,
+    "formationCode": "MRT-3000-B",
+    "carCount": 4,
+    "seriesTextKeyId": 9802,
+    "sourceSystem": "mock"
+  }
+]

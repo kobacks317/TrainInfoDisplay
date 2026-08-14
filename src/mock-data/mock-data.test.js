@@ -3,6 +3,9 @@
 
 import { describe, expect, it } from 'vitest';
 import {
+  carFacilities,
+  cars,
+  formations,
   lineStations,
   lineSymbols,
   lines,
@@ -415,5 +418,103 @@ describe('TRAIN_STOP', () => {
       const sequences = stops.map((s) => s.sequence).sort((a, b) => a - b);
       expect(sequences, `trainId=${trainId} のsequence`).toEqual(stops.map((_, i) => i + 1));
     }
+  });
+});
+
+describe('FORMATION', () => {
+  it('必須プロパティを備える', () => {
+    expectRequiredFields(formations, {
+      formationId: 'number',
+      formationCode: 'string',
+      carCount: 'number',
+    });
+  });
+
+  it('formationIdが一意である', () => {
+    expectUniquePrimaryKey(formations, 'formationId');
+  });
+
+  it('formationCodeが一意である', () => {
+    const codes = formations.map((f) => f.formationCode);
+    expect(new Set(codes).size).toBe(codes.length);
+  });
+
+  it('両数の異なる編成を2種類以上含む', () => {
+    const carCounts = new Set(formations.map((f) => f.carCount));
+    expect(formations.length).toBeGreaterThanOrEqual(2);
+    expect(carCounts.size).toBeGreaterThanOrEqual(2);
+  });
+});
+
+describe('CAR', () => {
+  it('必須プロパティを備える', () => {
+    expectRequiredFields(cars, {
+      carId: 'number',
+      formationId: 'number',
+      carNo: 'number',
+      sequence: 'number',
+      doorCount: 'number',
+      hasPrioritySeat: 'boolean',
+      isWomenOnly: 'boolean',
+      isWeakAc: 'boolean',
+    });
+  });
+
+  it('carIdが一意である', () => {
+    expectUniquePrimaryKey(cars, 'carId');
+  });
+
+  it('formationIdがFORMATIONに存在する', () => {
+    expectForeignKey(cars, 'formationId', formations, 'formationId');
+  });
+
+  it('各編成の号車数がcarCountと一致し、sequenceが重複なく連番である', () => {
+    for (const formation of formations) {
+      const formationCars = cars.filter((c) => c.formationId === formation.formationId);
+      expect(formationCars.length, `formationId=${formation.formationId} の号車数`).toBe(formation.carCount);
+
+      const sequences = formationCars.map((c) => c.sequence).sort((a, b) => a - b);
+      expect(sequences, `formationId=${formation.formationId} のsequence`).toEqual(
+        formationCars.map((_, i) => i + 1),
+      );
+    }
+  });
+
+  it('優先席・女性専用車・弱冷房車のサンプルをそれぞれ含む', () => {
+    expect(cars.some((c) => c.hasPrioritySeat)).toBe(true);
+    expect(cars.some((c) => c.isWomenOnly)).toBe(true);
+    expect(cars.some((c) => c.isWeakAc)).toBe(true);
+  });
+});
+
+describe('CAR_FACILITY', () => {
+  it('必須プロパティを備える', () => {
+    expectRequiredFields(carFacilities, {
+      carFacilityId: 'number',
+      carId: 'number',
+      facilityType: 'string',
+      labelTextKeyId: 'number',
+    });
+  });
+
+  it('carFacilityIdが一意である', () => {
+    expectUniquePrimaryKey(carFacilities, 'carFacilityId');
+  });
+
+  it('carIdがCARに存在する', () => {
+    expectForeignKey(carFacilities, 'carId', cars, 'carId');
+  });
+
+  it('一部の号車のみに設定されている（全号車ではない）', () => {
+    const carIdsWithFacility = new Set(carFacilities.map((f) => f.carId));
+    expect(carIdsWithFacility.size).toBeGreaterThanOrEqual(1);
+    expect(carIdsWithFacility.size).toBeLessThan(cars.length);
+  });
+
+  it('トイレ／車椅子スペース／WiFiのサンプルをそれぞれ含む', () => {
+    const types = new Set(carFacilities.map((f) => f.facilityType));
+    expect(types.has('トイレ')).toBe(true);
+    expect(types.has('車椅子スペース')).toBe(true);
+    expect(types.has('WiFi')).toBe(true);
   });
 });

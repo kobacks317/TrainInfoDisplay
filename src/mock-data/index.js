@@ -14,6 +14,9 @@ import trainTypes from './train-types.json';
 import trains from './trains.json';
 import trainLineSegments from './train-line-segments.json';
 import trainStops from './train-stops.json';
+import formations from './formations.json';
+import cars from './cars.json';
+import carFacilities from './car-facilities.json';
 
 export {
   operators,
@@ -29,4 +32,7 @@ export {
   trains,
   trainLineSegments,
   trainStops,
+  formations,
+  cars,
+  carFacilities,
 };

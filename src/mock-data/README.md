@@ -1,7 +1,7 @@
-# 路線・駅マスタ モックデータ
+# 路線・駅・列車マスタ モックデータ
 
-`docs/01_requirements.md` §7.2 のER図に対応する、路線・駅マスタのモックJSONデータです。
-各ファイルは対応する型定義（`src/types/station.js`, `src/types/common.js`）の1テーブル＝1配列に対応します。
+`docs/01_requirements.md` §7.2 のER図に対応する、路線・駅・列車マスタのモックJSONデータです。
+各ファイルは対応する型定義（`src/types/station.js`, `src/types/common.js`, `src/types/train.js`）の1テーブル＝1配列に対応します。
 
 ## ファイル構成
 
@@ -16,6 +16,10 @@
 | `transfer-info.json` | `station.js` の `TransferInfo` |
 | `platforms.json` | `station.js` の `Platform` |
 | `platform-facilities.json` | `station.js` の `PlatformFacility` |
+| `train-types.json` | `train.js` の `TrainType` |
+| `trains.json` | `train.js` の `Train` |
+| `train-line-segments.json` | `train.js` の `TrainLineSegment` |
+| `train-stops.json` | `train.js` の `TrainStop` |
 
 `index.js` から全ファイルをまとめてimportできます。
 
@@ -45,6 +49,30 @@
 | 4 | 港駅（みらい1号線） | 未設定 | 自社DBに存在しない他社線（臨海高速鉄道）への乗換 |
 | 5 | みらい浜駅（みらい1号線） | 未設定 | 自社DBに存在しない他社線への乗換 |
 
+## 列車マスタのサンプル（直通運転を含む）
+
+`docs/01_requirements.md` §3（決定事項No.9）の直通運転対応を示すため、上記の路線網上に4本の列車を用意した。
+
+| trainId | trainNumber | 運行区間（`TRAIN_LINE_SEGMENT`） | 種別の変化 | 通過駅 |
+|---|---|---|---|---|
+| 1 | 1001 | 東央本線のみ（中央駅→桜台駅） | 各停のみ・直通なし | なし |
+| 2 | 5001 | 東央本線のみ（中央駅→桜台駅） | 急行のみ・直通なし | 東央駅を通過 |
+| 3 | 3001A | 東央支線→東央本線→みらい1号線（花見台駅→みらい浜駅、3路線をまたぐ直通） | 各停（支線）→快速（本線）→急行（みらい1号線）と区間ごとに変化 | 東央駅・波止場駅を通過 |
+| 4 | M-201 | みらい1号線→東央本線（みらい浜駅→中央駅、事業者をまたぐ直通） | 各停（みらい1号線）→各停（本線）※運行事業者はみらい高速鉄道 | なし |
+
+- `TRAIN_LINE_SEGMENT.isThroughService` は、列車が自社の基準となる区間（先頭区間）を離れて他路線に乗り入れる区間で `true` としている。
+- `TRAIN_STOP` は通過駅も含めて `sequence` で連続採番し、`stopType='PASS'` の行には `arrivalTime`/`departureTime`/`platformId` を設定していない（着発時刻表示の対象外のため）。
+
+## `TRAIN_TYPE` のサンプル
+
+| trainTypeId | 事業者 | typeCode | 用途 |
+|---|---|---|---|
+| 1 | 東央鉄道 | LOCAL | 各駅停車 |
+| 2 | 東央鉄道 | RAPID | 快速（一部駅を通過） |
+| 3 | 東央鉄道 | EXPRESS | 急行（列車5001で使用） |
+| 4 | みらい高速鉄道 | LOCAL | 各駅停車 |
+| 5 | みらい高速鉄道 | EXPRESS | 急行（列車3001Aのみらい1号線区間で使用） |
+
 ## `*TextKeyId` について
 
 このモックデータの `nameTextKeyId` 等はすべて `TEXT_KEY`/`LOCALIZED_TEXT`（多言語テキスト管理）のモックが別Issueで整備されることを前提としたプレースホルダーIDです。本データ内では以下の対応で採番しています（実データは未整備）。
@@ -57,6 +85,8 @@
 | 9301-9399 | 乗換先路線名・事業者名・備考 (`TRANSFER_INFO.*TextKeyId`) |
 | 9401-9499 | ホーム方面表記 (`PLATFORM.directionTextKeyId`) |
 | 9501-9599 | ホーム設備名称 (`PLATFORM_FACILITY.labelTextKeyId`) |
+| 9601-9699 | 列車種別名 (`TRAIN_TYPE.nameTextKeyId`) |
+| 9701-9799 | 列車の経由表記 (`TRAIN.viaTextKeyId`) |
 
 同様に `symbolDesignId`（`SYMBOL_DESIGN`）も別Issueで整備される想定のプレースホルダー参照です。
 
@@ -67,3 +97,4 @@
 - 各レコードが型定義の必須プロパティを備えていること
 - 外部キーが対応するテーブルの主キーに存在すること（参照整合性）
 - 受け入れ条件（2事業者以上・3路線以上、各路線4駅以上、`TRANSFER_INFO` の自社線／他社線サンプル、`STATION_NUMBER` の1駅複数番号サンプル）を満たすこと
+- 列車マスタの受け入れ条件（直通なし列車／2路線以上にまたがる直通列車の両方、`TRAIN_STOP` の `stop_type='PASS'` サンプル、`TRAIN_LINE_SEGMENT` の区間ごとの種別変化サンプル、`TRAIN_TYPE` 3種類以上）を満たすこと

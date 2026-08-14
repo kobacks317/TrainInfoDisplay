@@ -1,0 +1,231 @@
+[
+  {
+    "trainStopId": 1,
+    "trainId": 1,
+    "lineId": 1,
+    "stationId": 1,
+    "platformId": 1,
+    "sequence": 1,
+    "stopType": "STOP",
+    "departureTime": "08:00",
+    "doorSide": "左"
+  },
+  {
+    "trainStopId": 2,
+    "trainId": 1,
+    "lineId": 1,
+    "stationId": 2,
+    "platformId": 3,
+    "sequence": 2,
+    "stopType": "STOP",
+    "arrivalTime": "08:04",
+    "departureTime": "08:05",
+    "doorSide": "左"
+  },
+  {
+    "trainStopId": 3,
+    "trainId": 1,
+    "lineId": 1,
+    "stationId": 3,
+    "platformId": 4,
+    "sequence": 3,
+    "stopType": "STOP",
+    "arrivalTime": "08:11",
+    "departureTime": "08:12",
+    "doorSide": "左"
+  },
+  {
+    "trainStopId": 4,
+    "trainId": 1,
+    "lineId": 1,
+    "stationId": 4,
+    "platformId": 6,
+    "sequence": 4,
+    "stopType": "STOP",
+    "arrivalTime": "08:19",
+    "doorSide": "左"
+  },
+  {
+    "trainStopId": 5,
+    "trainId": 2,
+    "lineId": 1,
+    "stationId": 1,
+    "platformId": 2,
+    "sequence": 1,
+    "stopType": "STOP",
+    "departureTime": "09:00",
+    "doorSide": "右"
+  },
+  {
+    "trainStopId": 6,
+    "trainId": 2,
+    "lineId": 1,
+    "stationId": 2,
+    "sequence": 2,
+    "stopType": "PASS"
+  },
+  {
+    "trainStopId": 7,
+    "trainId": 2,
+    "lineId": 1,
+    "stationId": 3,
+    "platformId": 5,
+    "sequence": 3,
+    "stopType": "STOP",
+    "arrivalTime": "09:09",
+    "departureTime": "09:10",
+    "doorSide": "右"
+  },
+  {
+    "trainStopId": 8,
+    "trainId": 2,
+    "lineId": 1,
+    "stationId": 4,
+    "platformId": 6,
+    "sequence": 4,
+    "stopType": "STOP",
+    "arrivalTime": "09:16",
+    "doorSide": "右"
+  },
+  {
+    "trainStopId": 9,
+    "trainId": 3,
+    "lineId": 2,
+    "stationId": 7,
+    "platformId": 7,
+    "sequence": 1,
+    "stopType": "STOP",
+    "departureTime": "10:00",
+    "doorSide": "左"
+  },
+  {
+    "trainStopId": 10,
+    "trainId": 3,
+    "lineId": 2,
+    "stationId": 6,
+    "sequence": 2,
+    "stopType": "STOP",
+    "arrivalTime": "10:04",
+    "departureTime": "10:05",
+    "doorSide": "左"
+  },
+  {
+    "trainStopId": 11,
+    "trainId": 3,
+    "lineId": 2,
+    "stationId": 5,
+    "sequence": 3,
+    "stopType": "STOP",
+    "arrivalTime": "10:09",
+    "departureTime": "10:10",
+    "doorSide": "左"
+  },
+  {
+    "trainStopId": 12,
+    "trainId": 3,
+    "lineId": 2,
+    "stationId": 1,
+    "platformId": 1,
+    "sequence": 4,
+    "stopType": "STOP",
+    "arrivalTime": "10:15",
+    "departureTime": "10:17",
+    "doorSide": "左"
+  },
+  {
+    "trainStopId": 13,
+    "trainId": 3,
+    "lineId": 1,
+    "stationId": 2,
+    "sequence": 5,
+    "stopType": "PASS"
+  },
+  {
+    "trainStopId": 14,
+    "trainId": 3,
+    "lineId": 1,
+    "stationId": 3,
+    "platformId": 4,
+    "sequence": 6,
+    "stopType": "STOP",
+    "arrivalTime": "10:24",
+    "departureTime": "10:26",
+    "doorSide": "右"
+  },
+  {
+    "trainStopId": 15,
+    "trainId": 3,
+    "lineId": 3,
+    "stationId": 8,
+    "sequence": 7,
+    "stopType": "PASS"
+  },
+  {
+    "trainStopId": 16,
+    "trainId": 3,
+    "lineId": 3,
+    "stationId": 9,
+    "platformId": 8,
+    "sequence": 8,
+    "stopType": "STOP",
+    "arrivalTime": "10:35",
+    "doorSide": "右"
+  },
+  {
+    "trainStopId": 17,
+    "trainId": 4,
+    "lineId": 3,
+    "stationId": 9,
+    "platformId": 8,
+    "sequence": 1,
+    "stopType": "STOP",
+    "departureTime": "11:00",
+    "doorSide": "左"
+  },
+  {
+    "trainStopId": 18,
+    "trainId": 4,
+    "lineId": 3,
+    "stationId": 8,
+    "sequence": 2,
+    "stopType": "STOP",
+    "arrivalTime": "11:07",
+    "departureTime": "11:08",
+    "doorSide": "左"
+  },
+  {
+    "trainStopId": 19,
+    "trainId": 4,
+    "lineId": 1,
+    "stationId": 3,
+    "platformId": 5,
+    "sequence": 3,
+    "stopType": "STOP",
+    "arrivalTime": "11:15",
+    "departureTime": "11:17",
+    "doorSide": "左"
+  },
+  {
+    "trainStopId": 20,
+    "trainId": 4,
+    "lineId": 1,
+    "stationId": 2,
+    "platformId": 3,
+    "sequence": 4,
+    "stopType": "STOP",
+    "arrivalTime": "11:23",
+    "departureTime": "11:24",
+    "doorSide": "左"
+  },
+  {
+    "trainStopId": 21,
+    "trainId": 4,
+    "lineId": 1,
+    "stationId": 1,
+    "platformId": 2,
+    "sequence": 5,
+    "stopType": "STOP",
+    "arrivalTime": "11:28",
+    "doorSide": "左"
+  }
+]

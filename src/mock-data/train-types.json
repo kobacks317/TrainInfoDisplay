@@ -1,0 +1,47 @@
+[
+  {
+    "trainTypeId": 1,
+    "operatorId": 1,
+    "typeCode": "LOCAL",
+    "nameTextKeyId": 9601,
+    "typeColor": "#6B7280",
+    "textColor": "#FFFFFF",
+    "priority": 1
+  },
+  {
+    "trainTypeId": 2,
+    "operatorId": 1,
+    "typeCode": "RAPID",
+    "nameTextKeyId": 9602,
+    "typeColor": "#F5A200",
+    "textColor": "#000000",
+    "priority": 2
+  },
+  {
+    "trainTypeId": 3,
+    "operatorId": 1,
+    "typeCode": "EXPRESS",
+    "nameTextKeyId": 9603,
+    "typeColor": "#E60012",
+    "textColor": "#FFFFFF",
+    "priority": 3
+  },
+  {
+    "trainTypeId": 4,
+    "operatorId": 2,
+    "typeCode": "LOCAL",
+    "nameTextKeyId": 9604,
+    "typeColor": "#6B7280",
+    "textColor": "#FFFFFF",
+    "priority": 1
+  },
+  {
+    "trainTypeId": 5,
+    "operatorId": 2,
+    "typeCode": "EXPRESS",
+    "nameTextKeyId": 9605,
+    "typeColor": "#C9252B",
+    "textColor": "#FFFFFF",
+    "priority": 2
+  }
+]

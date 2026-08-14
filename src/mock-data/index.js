@@ -10,6 +10,10 @@ import stationNumbers from './station-numbers.json';
 import transferInfo from './transfer-info.json';
 import platforms from './platforms.json';
 import platformFacilities from './platform-facilities.json';
+import trainTypes from './train-types.json';
+import trains from './trains.json';
+import trainLineSegments from './train-line-segments.json';
+import trainStops from './train-stops.json';
 
 export {
   operators,
@@ -21,4 +25,8 @@ export {
   transferInfo,
   platforms,
   platformFacilities,
+  trainTypes,
+  trains,
+  trainLineSegments,
+  trainStops,
 };

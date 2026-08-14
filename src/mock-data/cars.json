@@ -1,0 +1,122 @@
+[
+  {
+    "carId": 1,
+    "formationId": 1,
+    "carNo": 1,
+    "sequence": 1,
+    "doorCount": 4,
+    "hasPrioritySeat": true,
+    "isWomenOnly": false,
+    "isWeakAc": false
+  },
+  {
+    "carId": 2,
+    "formationId": 1,
+    "carNo": 2,
+    "sequence": 2,
+    "doorCount": 4,
+    "hasPrioritySeat": false,
+    "isWomenOnly": false,
+    "isWeakAc": true
+  },
+  {
+    "carId": 3,
+    "formationId": 1,
+    "carNo": 3,
+    "sequence": 3,
+    "doorCount": 4,
+    "hasPrioritySeat": false,
+    "isWomenOnly": false,
+    "isWeakAc": false
+  },
+  {
+    "carId": 4,
+    "formationId": 1,
+    "carNo": 4,
+    "sequence": 4,
+    "doorCount": 4,
+    "hasPrioritySeat": false,
+    "isWomenOnly": false,
+    "isWeakAc": false
+  },
+  {
+    "carId": 5,
+    "formationId": 1,
+    "carNo": 5,
+    "sequence": 5,
+    "doorCount": 4,
+    "hasPrioritySeat": false,
+    "isWomenOnly": true,
+    "isWeakAc": false
+  },
+  {
+    "carId": 6,
+    "formationId": 1,
+    "carNo": 6,
+    "sequence": 6,
+    "doorCount": 4,
+    "hasPrioritySeat": false,
+    "isWomenOnly": false,
+    "isWeakAc": false
+  },
+  {
+    "carId": 7,
+    "formationId": 1,
+    "carNo": 7,
+    "sequence": 7,
+    "doorCount": 4,
+    "hasPrioritySeat": false,
+    "isWomenOnly": false,
+    "isWeakAc": true
+  },
+  {
+    "carId": 8,
+    "formationId": 1,
+    "carNo": 8,
+    "sequence": 8,
+    "doorCount": 4,
+    "hasPrioritySeat": true,
+    "isWomenOnly": false,
+    "isWeakAc": false
+  },
+  {
+    "carId": 9,
+    "formationId": 2,
+    "carNo": 1,
+    "sequence": 1,
+    "doorCount": 3,
+    "hasPrioritySeat": true,
+    "isWomenOnly": false,
+    "isWeakAc": false
+  },
+  {
+    "carId": 10,
+    "formationId": 2,
+    "carNo": 2,
+    "sequence": 2,
+    "doorCount": 3,
+    "hasPrioritySeat": false,
+    "isWomenOnly": false,
+    "isWeakAc": true
+  },
+  {
+    "carId": 11,
+    "formationId": 2,
+    "carNo": 3,
+    "sequence": 3,
+    "doorCount": 3,
+    "hasPrioritySeat": false,
+    "isWomenOnly": true,
+    "isWeakAc": false
+  },
+  {
+    "carId": 12,
+    "formationId": 2,
+    "carNo": 4,
+    "sequence": 4,
+    "doorCount": 3,
+    "hasPrioritySeat": true,
+    "isWomenOnly": false,
+    "isWeakAc": false
+  }
+]

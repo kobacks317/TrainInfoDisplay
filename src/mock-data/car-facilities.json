@@ -1,0 +1,44 @@
+[
+  {
+    "carFacilityId": 1,
+    "carId": 1,
+    "facilityType": "トイレ",
+    "labelTextKeyId": 9901
+  },
+  {
+    "carFacilityId": 2,
+    "carId": 1,
+    "facilityType": "車椅子スペース",
+    "labelTextKeyId": 9902
+  },
+  {
+    "carFacilityId": 3,
+    "carId": 4,
+    "facilityType": "WiFi",
+    "labelTextKeyId": 9903
+  },
+  {
+    "carFacilityId": 4,
+    "carId": 8,
+    "facilityType": "トイレ",
+    "labelTextKeyId": 9904
+  },
+  {
+    "carFacilityId": 5,
+    "carId": 9,
+    "facilityType": "トイレ",
+    "labelTextKeyId": 9905
+  },
+  {
+    "carFacilityId": 6,
+    "carId": 9,
+    "facilityType": "車椅子スペース",
+    "labelTextKeyId": 9906
+  },
+  {
+    "carFacilityId": 7,
+    "carId": 12,
+    "facilityType": "WiFi",
+    "labelTextKeyId": 9907
+  }
+]

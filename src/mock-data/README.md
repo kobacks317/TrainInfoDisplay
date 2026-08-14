@@ -20,6 +20,9 @@
 | `trains.json` | `train.js` の `Train` |
 | `train-line-segments.json` | `train.js` の `TrainLineSegment` |
 | `train-stops.json` | `train.js` の `TrainStop` |
+| `formations.json` | `train.js` の `Formation` |
+| `cars.json` | `train.js` の `Car` |
+| `car-facilities.json` | `train.js` の `CarFacility` |
 
 `index.js` から全ファイルをまとめてimportできます。
 
@@ -73,6 +76,18 @@
 | 4 | みらい高速鉄道 | LOCAL | 各駅停車 |
 | 5 | みらい高速鉄道 | EXPRESS | 急行（列車3001Aのみらい1号線区間で使用） |
 
+## 編成・号車マスタのサンプル
+
+`docs/01_requirements.md` §7.2（`FORMATION`/`CAR`/`CAR_FACILITY`）に対応するモックデータ。両数の異なる2編成を用意した。
+
+| formationId | formationCode | carCount | 用途 |
+|---|---|---|---|
+| 1 | TOU-8000-A | 8 | 東央鉄道の8両編成 |
+| 2 | MRT-3000-B | 4 | みらい高速鉄道の4両編成 |
+
+- `CAR` は各編成の号車ごとに `sequence`（編成内の位置）・`doorCount`（片側ドア数）を設定し、優先席（`hasPrioritySeat`）・女性専用車（`isWomenOnly`）・弱冷房車（`isWeakAc`）のサンプルをそれぞれ含む。
+- `CAR_FACILITY` は一部の号車（各編成の先頭・中間・最後尾付近）にのみ、トイレ・車椅子スペース・WiFiを設定している。
+
 ## `*TextKeyId` について
 
 このモックデータの `nameTextKeyId` 等はすべて `TEXT_KEY`/`LOCALIZED_TEXT`（多言語テキスト管理）のモックが別Issueで整備されることを前提としたプレースホルダーIDです。本データ内では以下の対応で採番しています（実データは未整備）。
@@ -87,6 +102,8 @@
 | 9501-9599 | ホーム設備名称 (`PLATFORM_FACILITY.labelTextKeyId`) |
 | 9601-9699 | 列車種別名 (`TRAIN_TYPE.nameTextKeyId`) |
 | 9701-9799 | 列車の経由表記 (`TRAIN.viaTextKeyId`) |
+| 9801-9899 | 編成の形式名 (`FORMATION.seriesTextKeyId`) |
+| 9901-9999 | 号車設備名称 (`CAR_FACILITY.labelTextKeyId`) |
 
 同様に `symbolDesignId`（`SYMBOL_DESIGN`）も別Issueで整備される想定のプレースホルダー参照です。
 
@@ -98,3 +115,4 @@
 - 外部キーが対応するテーブルの主キーに存在すること（参照整合性）
 - 受け入れ条件（2事業者以上・3路線以上、各路線4駅以上、`TRANSFER_INFO` の自社線／他社線サンプル、`STATION_NUMBER` の1駅複数番号サンプル）を満たすこと
 - 列車マスタの受け入れ条件（直通なし列車／2路線以上にまたがる直通列車の両方、`TRAIN_STOP` の `stop_type='PASS'` サンプル、`TRAIN_LINE_SEGMENT` の区間ごとの種別変化サンプル、`TRAIN_TYPE` 3種類以上）を満たすこと
+- 編成・号車マスタの受け入れ条件（両数の異なる編成2種類以上、各号車の`sequence`/`doorCount`等の属性設定、一部号車への車両設備（トイレ／車椅子スペース／WiFi）設定）を満たすこと

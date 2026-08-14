@@ -1,12 +1,17 @@
-# 路線・駅・列車マスタ モックデータ
+# 多言語基盤・路線・駅・列車マスタ モックデータ
 
-`docs/01_requirements.md` §7.2 のER図に対応する、路線・駅・列車マスタのモックJSONデータです。
-各ファイルは対応する型定義（`src/types/station.js`, `src/types/common.js`, `src/types/train.js`）の1テーブル＝1配列に対応します。
+`docs/01_requirements.md` §7.1・§7.2 のER図に対応する、多言語基盤（`LANGUAGE`/`TEXT_KEY`/`LOCALIZED_TEXT`）および路線・駅・列車マスタのモックJSONデータです。
+各ファイルは対応する型定義（`src/types/common.js`, `src/types/station.js`, `src/types/train.js`）の1テーブル＝1配列に対応します。
+
+翻訳文の取得・フォールバック・巡回表示・未翻訳検出のユーティリティ関数は `src/localization.js` を参照してください。
 
 ## ファイル構成
 
 | ファイル | 対応する型 (`src/types/`) |
 |---|---|
+| `languages.json` | `common.js` の `Language` |
+| `text-keys.json` | `common.js` の `TextKey` |
+| `localized-texts.json` | `common.js` の `LocalizedText` |
 | `operators.json` | `station.js` の `Operator` |
 | `lines.json` | `station.js` の `Line` |
 | `line-symbols.json` | `common.js` の `LineSymbol` |
@@ -90,7 +95,7 @@
 
 ## `*TextKeyId` について
 
-このモックデータの `nameTextKeyId` 等はすべて `TEXT_KEY`/`LOCALIZED_TEXT`（多言語テキスト管理）のモックが別Issueで整備されることを前提としたプレースホルダーIDです。本データ内では以下の対応で採番しています（実データは未整備）。
+このモックデータの `nameTextKeyId` 等はすべて `text-keys.json`（`TEXT_KEY`）・`localized-texts.json`（`LOCALIZED_TEXT`）に対応する実データを持つIDです。本データ内では以下の対応で採番しています。
 
 | ID範囲 | 用途 |
 |---|---|
@@ -105,7 +110,9 @@
 | 9801-9899 | 編成の形式名 (`FORMATION.seriesTextKeyId`) |
 | 9901-9999 | 号車設備名称 (`CAR_FACILITY.labelTextKeyId`) |
 
-同様に `symbolDesignId`（`SYMBOL_DESIGN`）も別Issueで整備される想定のプレースホルダー参照です。
+`localized-texts.json` には既定言語（`ja`）の訳文を全キー分、`en` の訳文を全キー分、`zh-Hans` の訳文を一部（事業者名・路線名・駅名、`isReviewed=false`）のみ収録している。これは「言語の追加はマスタ登録のみで可能」「未翻訳の抽出」（FR-44）を確認するためのサンプル構成で、`zh-Hans` で未収録のキーは `src/localization.js` の `t()` により既定言語（`ja`）へフォールバックする。
+
+`symbolDesignId`（`SYMBOL_DESIGN`）は別Issueで整備される想定のプレースホルダー参照のままです。
 
 ## バリデーション
 
@@ -116,3 +123,5 @@
 - 受け入れ条件（2事業者以上・3路線以上、各路線4駅以上、`TRANSFER_INFO` の自社線／他社線サンプル、`STATION_NUMBER` の1駅複数番号サンプル）を満たすこと
 - 列車マスタの受け入れ条件（直通なし列車／2路線以上にまたがる直通列車の両方、`TRAIN_STOP` の `stop_type='PASS'` サンプル、`TRAIN_LINE_SEGMENT` の区間ごとの種別変化サンプル、`TRAIN_TYPE` 3種類以上）を満たすこと
 - 編成・号車マスタの受け入れ条件（両数の異なる編成2種類以上、各号車の`sequence`/`doorCount`等の属性設定、一部号車への車両設備（トイレ／車椅子スペース／WiFi）設定）を満たすこと
+- 多言語基盤の受け入れ条件（`LANGUAGE`は既定言語1件のみ、`TEXT_KEY`/`LOCALIZED_TEXT`の参照整合性、既定言語の訳文が全キーに存在すること、既定言語以外の訳文・未翻訳サンプルを含むこと）を満たすこと
+- モックデータ全体で使用されている `*TextKeyId` の値が、すべて `TEXT_KEY` に実在すること（他テーブルのモック追加時の検知用）

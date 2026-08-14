@@ -2,18 +2,22 @@
 // 参照: docs/01_requirements.md §7.2, src/types/station.js, src/types/common.js
 
 import { describe, expect, it } from 'vitest';
+import { assertDefaultTranslationsComplete } from '../localization.js';
 import {
   carFacilities,
   cars,
   formations,
+  languages,
   lineStations,
   lineSymbols,
   lines,
+  localizedTexts,
   operators,
   platformFacilities,
   platforms,
   stationNumbers,
   stations,
+  textKeys,
   trainLineSegments,
   trainStops,
   trainTypes,
@@ -516,5 +520,118 @@ describe('CAR_FACILITY', () => {
     expect(types.has('トイレ')).toBe(true);
     expect(types.has('車椅子スペース')).toBe(true);
     expect(types.has('WiFi')).toBe(true);
+  });
+});
+
+describe('LANGUAGE', () => {
+  it('必須プロパティを備える', () => {
+    expectRequiredFields(languages, {
+      languageCode: 'string',
+      displayName: 'string',
+      sortOrder: 'number',
+      isDefault: 'boolean',
+      isActive: 'boolean',
+    });
+  });
+
+  it('languageCodeが一意である', () => {
+    const codes = languages.map((l) => l.languageCode);
+    expect(new Set(codes).size).toBe(codes.length);
+  });
+
+  it('既定言語（isDefault=true）がちょうど1件存在する', () => {
+    expect(languages.filter((l) => l.isDefault).length).toBe(1);
+  });
+});
+
+describe('TEXT_KEY', () => {
+  it('必須プロパティを備える', () => {
+    expectRequiredFields(textKeys, { textKeyId: 'number', keyCode: 'string', category: 'string' });
+  });
+
+  it('textKeyIdが一意である', () => {
+    expectUniquePrimaryKey(textKeys, 'textKeyId');
+  });
+
+  it('keyCodeが一意である', () => {
+    const codes = textKeys.map((k) => k.keyCode);
+    expect(new Set(codes).size).toBe(codes.length);
+  });
+});
+
+describe('LOCALIZED_TEXT', () => {
+  it('必須プロパティを備える', () => {
+    expectRequiredFields(localizedTexts, {
+      localizedTextId: 'number',
+      textKeyId: 'number',
+      languageCode: 'string',
+      textValue: 'string',
+      isReviewed: 'boolean',
+    });
+  });
+
+  it('localizedTextIdが一意である', () => {
+    expectUniquePrimaryKey(localizedTexts, 'localizedTextId');
+  });
+
+  it('textKeyId/languageCodeがそれぞれTEXT_KEY/LANGUAGEに存在する', () => {
+    expectForeignKey(localizedTexts, 'textKeyId', textKeys, 'textKeyId');
+    const languageCodes = new Set(languages.map((l) => l.languageCode));
+    for (const localizedText of localizedTexts) {
+      expect(
+        languageCodes.has(localizedText.languageCode),
+        `languageCode=${localizedText.languageCode} がLANGUAGEに存在しない`,
+      ).toBe(true);
+    }
+  });
+
+  it('同一textKeyId・languageCodeの組み合わせが重複しない', () => {
+    const pairs = localizedTexts.map((lt) => `${lt.textKeyId}:${lt.languageCode}`);
+    expect(new Set(pairs).size).toBe(pairs.length);
+  });
+
+  it('既定言語（ja）の訳文が全テキストキーに存在する', () => {
+    expect(() => assertDefaultTranslationsComplete(textKeys, localizedTexts, languages)).not.toThrow();
+  });
+
+  it('既定言語以外（en/zh-Hans）の訳文サンプルも含む', () => {
+    const languageCodesInUse = new Set(localizedTexts.map((lt) => lt.languageCode));
+    expect(languageCodesInUse.has('en')).toBe(true);
+    expect(languageCodesInUse.has('zh-Hans')).toBe(true);
+  });
+
+  it('未翻訳（isReviewed=false）のサンプルを含む（未翻訳抽出機能の検証用）', () => {
+    expect(localizedTexts.some((lt) => !lt.isReviewed)).toBe(true);
+  });
+});
+
+describe('モックデータ全体の *TextKeyId 参照整合性', () => {
+  const allRecordsByTable = {
+    OPERATOR: operators,
+    LINE: lines,
+    LINE_SYMBOL: lineSymbols,
+    STATION: stations,
+    TRANSFER_INFO: transferInfo,
+    PLATFORM: platforms,
+    PLATFORM_FACILITY: platformFacilities,
+    TRAIN_TYPE: trainTypes,
+    TRAIN: trains,
+    FORMATION: formations,
+    CAR_FACILITY: carFacilities,
+  };
+
+  it('*TextKeyIdという名前のプロパティは全てTEXT_KEYに存在する', () => {
+    const textKeyIds = new Set(textKeys.map((k) => k.textKeyId));
+    for (const [tableName, records] of Object.entries(allRecordsByTable)) {
+      for (const record of records) {
+        for (const [field, value] of Object.entries(record)) {
+          if (!field.endsWith('TextKeyId') || value === undefined) continue;
+          expect(
+            textKeyIds.has(value),
+            `${tableName}.${field}=${value} がTEXT_KEYに存在しない: ${JSON.stringify(record)}`,
+          ).toBe(true);
+        }
+      }
+    }
   });
 });

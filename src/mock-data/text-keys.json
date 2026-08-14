@@ -1,0 +1,159 @@
+[
+  { "textKeyId": 9001, "keyCode": "operator.name.tou", "category": "operator_name" },
+  { "textKeyId": 9002, "keyCode": "operator.name.mrt", "category": "operator_name" },
+
+  { "textKeyId": 9101, "keyCode": "line.name.tou_main", "category": "line_name" },
+  { "textKeyId": 9102, "keyCode": "line.name.tou_branch", "category": "line_name" },
+  { "textKeyId": 9103, "keyCode": "line.name.mrt_1", "category": "line_name" },
+
+  { "textKeyId": 9201, "keyCode": "station.name.chuo", "category": "station_name" },
+  { "textKeyId": 9202, "keyCode": "station.name.tou", "category": "station_name" },
+  { "textKeyId": 9203, "keyCode": "station.name.minato", "category": "station_name" },
+  { "textKeyId": 9204, "keyCode": "station.name.sakuradai", "category": "station_name" },
+  { "textKeyId": 9205, "keyCode": "station.name.midorigaoka", "category": "station_name" },
+  { "textKeyId": 9206, "keyCode": "station.name.sakuranamiki", "category": "station_name" },
+  { "textKeyId": 9207, "keyCode": "station.name.hanamidai", "category": "station_name" },
+  { "textKeyId": 9208, "keyCode": "station.name.hatoba", "category": "station_name" },
+  { "textKeyId": 9209, "keyCode": "station.name.miraihama", "category": "station_name" },
+
+  {
+    "textKeyId": 9301,
+    "keyCode": "transfer.display_name.tou_branch",
+    "category": "transfer_display_name",
+    "note": "TRANSFER_INFO#1 中央駅→東央支線（自社線）"
+  },
+  {
+    "textKeyId": 9302,
+    "keyCode": "transfer.display_name.mrt_1",
+    "category": "transfer_display_name",
+    "note": "TRANSFER_INFO#2,#3 中央駅・港駅→みらい1号線（自社線）"
+  },
+  {
+    "textKeyId": 9303,
+    "keyCode": "transfer.display_name.rinkai",
+    "category": "transfer_display_name",
+    "note": "TRANSFER_INFO#4 港駅→りんかい線（自社DB非登録の他社線）"
+  },
+  {
+    "textKeyId": 9304,
+    "keyCode": "transfer.operator_name.rinkai",
+    "category": "transfer_operator_name",
+    "note": "TRANSFER_INFO#4 の事業者名"
+  },
+  {
+    "textKeyId": 9305,
+    "keyCode": "transfer.note.rinkai_ic_card",
+    "category": "transfer_note",
+    "note": "TRANSFER_INFO#4 の備考"
+  },
+  {
+    "textKeyId": 9306,
+    "keyCode": "transfer.display_name.wangan",
+    "category": "transfer_display_name",
+    "note": "TRANSFER_INFO#5 みらい浜駅→湾岸新線（自社DB非登録の他社線）"
+  },
+  {
+    "textKeyId": 9307,
+    "keyCode": "transfer.operator_name.wangan",
+    "category": "transfer_operator_name",
+    "note": "TRANSFER_INFO#5 の事業者名"
+  },
+
+  {
+    "textKeyId": 9401,
+    "keyCode": "platform.direction.sakuradai_bound",
+    "category": "platform_direction",
+    "note": "PLATFORM#1(中央駅),#4(港駅) 東央本線 桜台方面"
+  },
+  {
+    "textKeyId": 9402,
+    "keyCode": "platform.direction.chuo_branch_bound",
+    "category": "platform_direction",
+    "note": "PLATFORM#2(中央駅) 東央支線方面"
+  },
+  {
+    "textKeyId": 9403,
+    "keyCode": "platform.direction.minato_sakuradai_bound",
+    "category": "platform_direction",
+    "note": "PLATFORM#3(東央駅) 港・桜台方面"
+  },
+  {
+    "textKeyId": 9404,
+    "keyCode": "platform.direction.miraihama_bound",
+    "category": "platform_direction",
+    "note": "PLATFORM#5(港駅) みらい浜方面"
+  },
+
+  {
+    "textKeyId": 9501,
+    "keyCode": "platform_facility.label.chuo_p1_exit_south",
+    "category": "platform_facility_label"
+  },
+  {
+    "textKeyId": 9502,
+    "keyCode": "platform_facility.label.chuo_p1_stairs_central",
+    "category": "platform_facility_label"
+  },
+  {
+    "textKeyId": 9503,
+    "keyCode": "platform_facility.label.chuo_p1_elevator",
+    "category": "platform_facility_label"
+  },
+  {
+    "textKeyId": 9504,
+    "keyCode": "platform_facility.label.minato_p4_exit_port",
+    "category": "platform_facility_label"
+  },
+  {
+    "textKeyId": 9505,
+    "keyCode": "platform_facility.label.minato_p4_escalator",
+    "category": "platform_facility_label"
+  },
+  {
+    "textKeyId": 9506,
+    "keyCode": "platform_facility.label.miraihama_p8_exit",
+    "category": "platform_facility_label"
+  },
+
+  { "textKeyId": 9601, "keyCode": "train_type.name.local_tou", "category": "train_type_name" },
+  { "textKeyId": 9602, "keyCode": "train_type.name.rapid_tou", "category": "train_type_name" },
+  { "textKeyId": 9603, "keyCode": "train_type.name.express_tou", "category": "train_type_name" },
+  { "textKeyId": 9604, "keyCode": "train_type.name.local_mrt", "category": "train_type_name" },
+  { "textKeyId": 9605, "keyCode": "train_type.name.express_mrt", "category": "train_type_name" },
+
+  {
+    "textKeyId": 9701,
+    "keyCode": "train.via.tou_branch",
+    "category": "train_via",
+    "note": "列車3001A（東央支線経由）"
+  },
+  {
+    "textKeyId": 9702,
+    "keyCode": "train.via.tou_main_through",
+    "category": "train_via",
+    "note": "列車M-201（東央本線直通）"
+  },
+
+  { "textKeyId": 9801, "keyCode": "formation.series.tou_8000", "category": "formation_series" },
+  { "textKeyId": 9802, "keyCode": "formation.series.mrt_3000", "category": "formation_series" },
+
+  {
+    "textKeyId": 9901,
+    "keyCode": "car_facility.label.toilet_multipurpose",
+    "category": "car_facility_label"
+  },
+  {
+    "textKeyId": 9902,
+    "keyCode": "car_facility.label.wheelchair_space_car1",
+    "category": "car_facility_label"
+  },
+  { "textKeyId": 9903, "keyCode": "car_facility.label.wifi_car4", "category": "car_facility_label" },
+  { "textKeyId": 9904, "keyCode": "car_facility.label.toilet_car8", "category": "car_facility_label" },
+  { "textKeyId": 9905, "keyCode": "car_facility.label.toilet_car9", "category": "car_facility_label" },
+  {
+    "textKeyId": 9906,
+    "keyCode": "car_facility.label.wheelchair_space_car9",
+    "category": "car_facility_label"
+  },
+  { "textKeyId": 9907, "keyCode": "car_facility.label.wifi_car12", "category": "car_facility_label" }
+]

@@ -82,7 +82,9 @@ export function computeNextStops(trainStops, trainId, currentStationId) {
 
   const currentIndex = stops.findIndex((stop) => stop.stationId === currentStationId);
   if (currentIndex === -1) {
-    throw new Error(`列車(trainId=${trainId})の経由駅に現在駅(stationId=${currentStationId})が見つかりません`);
+    throw new Error(
+      `列車(trainId=${trainId})の経由駅に現在駅(stationId=${currentStationId})が見つかりません`,
+    );
   }
 
   const upcoming = stops.slice(currentIndex + 1);

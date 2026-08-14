@@ -30,7 +30,10 @@ function expectRequiredFields(records, requiredFields) {
   for (const record of records) {
     for (const [field, type] of Object.entries(requiredFields)) {
       expect(record, `record ${JSON.stringify(record)} に ${field} が必要`).toHaveProperty(field);
-      expect(typeof record[field], `${field} は ${type} 型である必要がある: ${JSON.stringify(record)}`).toBe(type);
+      expect(
+        typeof record[field],
+        `${field} は ${type} 型である必要がある: ${JSON.stringify(record)}`,
+      ).toBe(type);
     }
   }
 }
@@ -58,13 +61,20 @@ function expectForeignKey(records, fkField, targetRecords, targetIdField, option
   for (const record of records) {
     const value = record[fkField];
     if (optional && (value === undefined || value === null)) continue;
-    expect(targetIds.has(value), `${fkField}=${value} が ${targetIdField} に存在しない: ${JSON.stringify(record)}`).toBe(true);
+    expect(
+      targetIds.has(value),
+      `${fkField}=${value} が ${targetIdField} に存在しない: ${JSON.stringify(record)}`,
+    ).toBe(true);
   }
 }
 
 describe('OPERATOR', () => {
   it('必須プロパティを備える', () => {
-    expectRequiredFields(operators, { operatorId: 'number', operatorCode: 'string', nameTextKeyId: 'number' });
+    expectRequiredFields(operators, {
+      operatorId: 'number',
+      operatorCode: 'string',
+      nameTextKeyId: 'number',
+    });
   });
 
   it('operatorIdが一意である', () => {
@@ -121,7 +131,11 @@ describe('LINE_SYMBOL', () => {
 
 describe('STATION', () => {
   it('必須プロパティを備える', () => {
-    expectRequiredFields(stations, { stationId: 'number', stationCode: 'string', nameTextKeyId: 'number' });
+    expectRequiredFields(stations, {
+      stationId: 'number',
+      stationCode: 'string',
+      nameTextKeyId: 'number',
+    });
   });
 
   it('stationIdが一意である', () => {
@@ -471,7 +485,9 @@ describe('CAR', () => {
   it('各編成の号車数がcarCountと一致し、sequenceが重複なく連番である', () => {
     for (const formation of formations) {
       const formationCars = cars.filter((c) => c.formationId === formation.formationId);
-      expect(formationCars.length, `formationId=${formation.formationId} の号車数`).toBe(formation.carCount);
+      expect(formationCars.length, `formationId=${formation.formationId} の号車数`).toBe(
+        formation.carCount,
+      );
 
       const sequences = formationCars.map((c) => c.sequence).sort((a, b) => a - b);
       expect(sequences, `formationId=${formation.formationId} のsequence`).toEqual(

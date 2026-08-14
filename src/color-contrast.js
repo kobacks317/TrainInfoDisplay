@@ -50,10 +50,7 @@ export function meetsContrastAA(hexA, hexB, ratio = 4.5) {
  * 任意の背景色に対して、白／黒のうち読みやすい方の文字色を返す。
  * 路線カラーのように動的に決まる背景色へ、案内表示側で文字色を対応させるために使う。
  */
-export function pickReadableTextColor(
-  backgroundHex,
-  { light = '#ffffff', dark = '#000000' } = {},
-) {
+export function pickReadableTextColor(backgroundHex, { light = '#ffffff', dark = '#000000' } = {}) {
   const lightRatio = getContrastRatio(backgroundHex, light);
   const darkRatio = getContrastRatio(backgroundHex, dark);
   return lightRatio >= darkRatio ? light : dark;

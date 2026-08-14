@@ -45,4 +45,3 @@ jobs:
             --allowedTools "Bash(npm test:*),Bash(npm run lint:*),Bash(npm run format:check:*)"
           # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
           # or https://code.claude.com/docs/en/cli-reference for available options
-

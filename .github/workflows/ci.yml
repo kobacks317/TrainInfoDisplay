@@ -21,9 +21,16 @@ jobs:
   test:
     name: Lint & Test
     runs-on: ubuntu-latest
+    # 機械的な自動修正コミットをpushするために contents: write が必要
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # pull_request イベントではデフォルトで検証用マージコミット（detached HEAD）が
+          # checkoutされるため、push先を実ブランチにするため明示的に head_ref を指定する。
+          ref: ${{ github.head_ref || github.ref }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -33,6 +40,29 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Auto-fix lint & format issues
+        # ESLint/Stylelint/Prettierの自動修正可能な指摘のみをその場で修正する。
+        # ロジック判断が必要な指摘（--fixで直せないもの）はここでは直らず、
+        # 後続の Lint / Format check ステップで通常どおり失敗する。
+        run: |
+          npm run lint:fix || true
+          npm run format
+
+      - name: Commit and push auto-fixes
+        # フォークからのPRはコンテンツ書き込み権限がないため対象外。
+        if: |
+          github.event_name == 'push' ||
+          (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
+        run: |
+          if ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "chore: lint/formatを自動修正 [skip ci]"
+            git pull --rebase origin "${{ github.head_ref || github.ref_name }}"
+            git push origin "HEAD:${{ github.head_ref || github.ref_name }}"
+          fi
 
       - name: Lint
         run: npm run lint

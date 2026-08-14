@@ -72,17 +72,11 @@ export const ROUTES = [
   defineScreen('M-23', 'ホーム・設備管理', '/settings/platforms', ROLES.ADMIN, [
     BACK_TO_SETTINGS_TOP,
   ]),
-  defineScreen('M-24', '乗換情報管理', '/settings/transfers', ROLES.ADMIN, [
-    BACK_TO_SETTINGS_TOP,
-  ]),
+  defineScreen('M-24', '乗換情報管理', '/settings/transfers', ROLES.ADMIN, [BACK_TO_SETTINGS_TOP]),
   defineScreen('M-25', '編成・号車管理', '/settings/formations', ROLES.ADMIN, [
     BACK_TO_SETTINGS_TOP,
   ]),
-  defineScreen('M-26', 'お知らせ管理', '/settings/notices', ROLES.OPERATOR, [
-    BACK_TO_SETTINGS_TOP,
-  ]),
-  defineScreen('M-30', '多言語テキスト管理', '/settings/i18n', ROLES.ADMIN, [
-    BACK_TO_SETTINGS_TOP,
-  ]),
+  defineScreen('M-26', 'お知らせ管理', '/settings/notices', ROLES.OPERATOR, [BACK_TO_SETTINGS_TOP]),
+  defineScreen('M-30', '多言語テキスト管理', '/settings/i18n', ROLES.ADMIN, [BACK_TO_SETTINGS_TOP]),
   defineScreen('M-31', '外部DB同期管理', '/settings/sync', ROLES.ADMIN, [BACK_TO_SETTINGS_TOP]),
 ];

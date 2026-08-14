@@ -49,4 +49,3 @@ jobs:
           # or https://code.claude.com/docs/en/cli-reference for available options
           claude_args: |
             --allowedTools "Bash(npm test:*),Bash(npm run lint:*),Bash(npm run format:check:*)"
-

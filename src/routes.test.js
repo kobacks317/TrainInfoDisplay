@@ -35,9 +35,7 @@ describe('ROUTES', () => {
     const knownPaths = new Set(ROUTES.map((route) => route.path));
     for (const route of ROUTES) {
       for (const link of route.links) {
-        expect(knownPaths.has(link.path), `${route.id}のリンク先 ${link.path} が未定義`).toBe(
-          true,
-        );
+        expect(knownPaths.has(link.path), `${route.id}のリンク先 ${link.path} が未定義`).toBe(true);
       }
     }
   });

@@ -1,0 +1,772 @@
+[
+  {
+    "localizedTextId": 1,
+    "textKeyId": 9001,
+    "languageCode": "ja",
+    "textValue": "東央鉄道",
+    "reading": "とうおうてつどう",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 2,
+    "textKeyId": 9002,
+    "languageCode": "ja",
+    "textValue": "みらい高速鉄道",
+    "reading": "みらいこうそくてつどう",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 3,
+    "textKeyId": 9101,
+    "languageCode": "ja",
+    "textValue": "東央本線",
+    "reading": "とうおうほんせん",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 4,
+    "textKeyId": 9102,
+    "languageCode": "ja",
+    "textValue": "東央支線",
+    "reading": "とうおうしせん",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 5,
+    "textKeyId": 9103,
+    "languageCode": "ja",
+    "textValue": "みらい1号線",
+    "reading": "みらいいちごうせん",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 6,
+    "textKeyId": 9201,
+    "languageCode": "ja",
+    "textValue": "中央駅",
+    "reading": "ちゅうおうえき",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 7,
+    "textKeyId": 9202,
+    "languageCode": "ja",
+    "textValue": "東央駅",
+    "reading": "とうおうえき",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 8,
+    "textKeyId": 9203,
+    "languageCode": "ja",
+    "textValue": "港駅",
+    "reading": "みなとえき",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 9,
+    "textKeyId": 9204,
+    "languageCode": "ja",
+    "textValue": "桜台駅",
+    "reading": "さくらだいえき",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 10,
+    "textKeyId": 9205,
+    "languageCode": "ja",
+    "textValue": "緑丘駅",
+    "reading": "みどりがおかえき",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 11,
+    "textKeyId": 9206,
+    "languageCode": "ja",
+    "textValue": "桜並木駅",
+    "reading": "さくらなみきえき",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 12,
+    "textKeyId": 9207,
+    "languageCode": "ja",
+    "textValue": "花見台駅",
+    "reading": "はなみだいえき",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 13,
+    "textKeyId": 9208,
+    "languageCode": "ja",
+    "textValue": "波止場駅",
+    "reading": "はとばえき",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 14,
+    "textKeyId": 9209,
+    "languageCode": "ja",
+    "textValue": "みらい浜駅",
+    "reading": "みらいはまえき",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 15,
+    "textKeyId": 9301,
+    "languageCode": "ja",
+    "textValue": "東央支線",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 16,
+    "textKeyId": 9302,
+    "languageCode": "ja",
+    "textValue": "みらい1号線",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 17,
+    "textKeyId": 9303,
+    "languageCode": "ja",
+    "textValue": "りんかい線",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 18,
+    "textKeyId": 9304,
+    "languageCode": "ja",
+    "textValue": "東京臨海高速鉄道",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 19,
+    "textKeyId": 9305,
+    "languageCode": "ja",
+    "textValue": "改札外乗り換え",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 20,
+    "textKeyId": 9306,
+    "languageCode": "ja",
+    "textValue": "空港連絡線",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 21,
+    "textKeyId": 9307,
+    "languageCode": "ja",
+    "textValue": "湾岸急行鉄道",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 22,
+    "textKeyId": 9401,
+    "languageCode": "ja",
+    "textValue": "下り(港・桜台方面)",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 23,
+    "textKeyId": 9402,
+    "languageCode": "ja",
+    "textValue": "上り(東央方面)",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 24,
+    "textKeyId": 9403,
+    "languageCode": "ja",
+    "textValue": "下り(港方面)",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 25,
+    "textKeyId": 9404,
+    "languageCode": "ja",
+    "textValue": "上り(中央方面)",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 26,
+    "textKeyId": 9501,
+    "languageCode": "ja",
+    "textValue": "南口",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 27,
+    "textKeyId": 9502,
+    "languageCode": "ja",
+    "textValue": "中央階段",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 28,
+    "textKeyId": 9503,
+    "languageCode": "ja",
+    "textValue": "エレベーター(北側)",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 29,
+    "textKeyId": 9504,
+    "languageCode": "ja",
+    "textValue": "東口",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 30,
+    "textKeyId": 9505,
+    "languageCode": "ja",
+    "textValue": "エスカレーター(上りホーム側)",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 31,
+    "textKeyId": 9506,
+    "languageCode": "ja",
+    "textValue": "みらい浜口",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 32,
+    "textKeyId": 9601,
+    "languageCode": "ja",
+    "textValue": "各駅停車",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 33,
+    "textKeyId": 9602,
+    "languageCode": "ja",
+    "textValue": "快速",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 34,
+    "textKeyId": 9603,
+    "languageCode": "ja",
+    "textValue": "急行",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 35,
+    "textKeyId": 9604,
+    "languageCode": "ja",
+    "textValue": "各駅停車",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 36,
+    "textKeyId": 9605,
+    "languageCode": "ja",
+    "textValue": "急行",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 37,
+    "textKeyId": 9701,
+    "languageCode": "ja",
+    "textValue": "東央支線経由・みらい1号線直通",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 38,
+    "textKeyId": 9702,
+    "languageCode": "ja",
+    "textValue": "東央本線直通",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 39,
+    "textKeyId": 9801,
+    "languageCode": "ja",
+    "textValue": "8000系",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 40,
+    "textKeyId": 9802,
+    "languageCode": "ja",
+    "textValue": "3000系",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 41,
+    "textKeyId": 9901,
+    "languageCode": "ja",
+    "textValue": "トイレ",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 42,
+    "textKeyId": 9902,
+    "languageCode": "ja",
+    "textValue": "車椅子スペース",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 43,
+    "textKeyId": 9903,
+    "languageCode": "ja",
+    "textValue": "無料Wi-Fi",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 44,
+    "textKeyId": 9904,
+    "languageCode": "ja",
+    "textValue": "トイレ",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 45,
+    "textKeyId": 9905,
+    "languageCode": "ja",
+    "textValue": "トイレ",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 46,
+    "textKeyId": 9906,
+    "languageCode": "ja",
+    "textValue": "車椅子スペース",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 47,
+    "textKeyId": 9907,
+    "languageCode": "ja",
+    "textValue": "無料Wi-Fi",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 48,
+    "textKeyId": 9001,
+    "languageCode": "en",
+    "textValue": "Toou Railway",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 49,
+    "textKeyId": 9002,
+    "languageCode": "en",
+    "textValue": "Mirai Rapid Railway",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 50,
+    "textKeyId": 9101,
+    "languageCode": "en",
+    "textValue": "Toou Main Line",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 51,
+    "textKeyId": 9102,
+    "languageCode": "en",
+    "textValue": "Toou Branch Line",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 52,
+    "textKeyId": 9103,
+    "languageCode": "en",
+    "textValue": "Mirai Line 1",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 53,
+    "textKeyId": 9201,
+    "languageCode": "en",
+    "textValue": "Chuo Station",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 54,
+    "textKeyId": 9202,
+    "languageCode": "en",
+    "textValue": "Toou Station",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 55,
+    "textKeyId": 9203,
+    "languageCode": "en",
+    "textValue": "Minato Station",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 56,
+    "textKeyId": 9204,
+    "languageCode": "en",
+    "textValue": "Sakuradai Station",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 57,
+    "textKeyId": 9205,
+    "languageCode": "en",
+    "textValue": "Midorigaoka Station",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 58,
+    "textKeyId": 9206,
+    "languageCode": "en",
+    "textValue": "Sakuranamiki Station",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 59,
+    "textKeyId": 9207,
+    "languageCode": "en",
+    "textValue": "Hanamidai Station",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 60,
+    "textKeyId": 9208,
+    "languageCode": "en",
+    "textValue": "Hatoba Station",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 61,
+    "textKeyId": 9209,
+    "languageCode": "en",
+    "textValue": "Miraihama Station",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 62,
+    "textKeyId": 9301,
+    "languageCode": "en",
+    "textValue": "Toou Branch Line",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 63,
+    "textKeyId": 9302,
+    "languageCode": "en",
+    "textValue": "Mirai Line 1",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 64,
+    "textKeyId": 9303,
+    "languageCode": "en",
+    "textValue": "Rinkai Line",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 65,
+    "textKeyId": 9304,
+    "languageCode": "en",
+    "textValue": "Tokyo Waterfront Area Rapid Transit",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 66,
+    "textKeyId": 9305,
+    "languageCode": "en",
+    "textValue": "Transfer outside ticket gates",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 67,
+    "textKeyId": 9306,
+    "languageCode": "en",
+    "textValue": "Airport Connection Line",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 68,
+    "textKeyId": 9307,
+    "languageCode": "en",
+    "textValue": "Bay Area Express Railway",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 69,
+    "textKeyId": 9401,
+    "languageCode": "en",
+    "textValue": "For Minato & Sakuradai",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 70,
+    "textKeyId": 9402,
+    "languageCode": "en",
+    "textValue": "For Toou",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 71,
+    "textKeyId": 9403,
+    "languageCode": "en",
+    "textValue": "For Minato",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 72,
+    "textKeyId": 9404,
+    "languageCode": "en",
+    "textValue": "For Chuo",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 73,
+    "textKeyId": 9501,
+    "languageCode": "en",
+    "textValue": "South Exit",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 74,
+    "textKeyId": 9502,
+    "languageCode": "en",
+    "textValue": "Central Stairs",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 75,
+    "textKeyId": 9503,
+    "languageCode": "en",
+    "textValue": "Elevator (North side)",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 76,
+    "textKeyId": 9504,
+    "languageCode": "en",
+    "textValue": "East Exit",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 77,
+    "textKeyId": 9505,
+    "languageCode": "en",
+    "textValue": "Escalator (Uptown platform side)",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 78,
+    "textKeyId": 9506,
+    "languageCode": "en",
+    "textValue": "Miraihama Exit",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 79,
+    "textKeyId": 9601,
+    "languageCode": "en",
+    "textValue": "Local",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 80,
+    "textKeyId": 9602,
+    "languageCode": "en",
+    "textValue": "Rapid",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 81,
+    "textKeyId": 9603,
+    "languageCode": "en",
+    "textValue": "Express",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 82,
+    "textKeyId": 9604,
+    "languageCode": "en",
+    "textValue": "Local",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 83,
+    "textKeyId": 9605,
+    "languageCode": "en",
+    "textValue": "Express",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 84,
+    "textKeyId": 9701,
+    "languageCode": "en",
+    "textValue": "Via Toou Branch Line, through service to Mirai Line 1",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 85,
+    "textKeyId": 9702,
+    "languageCode": "en",
+    "textValue": "Through service to Toou Main Line",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 86,
+    "textKeyId": 9801,
+    "languageCode": "en",
+    "textValue": "Series 8000",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 87,
+    "textKeyId": 9802,
+    "languageCode": "en",
+    "textValue": "Series 3000",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 88,
+    "textKeyId": 9901,
+    "languageCode": "en",
+    "textValue": "Restroom",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 89,
+    "textKeyId": 9902,
+    "languageCode": "en",
+    "textValue": "Wheelchair Space",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 90,
+    "textKeyId": 9903,
+    "languageCode": "en",
+    "textValue": "Free Wi-Fi",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 91,
+    "textKeyId": 9904,
+    "languageCode": "en",
+    "textValue": "Restroom",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 92,
+    "textKeyId": 9905,
+    "languageCode": "en",
+    "textValue": "Restroom",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 93,
+    "textKeyId": 9906,
+    "languageCode": "en",
+    "textValue": "Wheelchair Space",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 94,
+    "textKeyId": 9907,
+    "languageCode": "en",
+    "textValue": "Free Wi-Fi",
+    "isReviewed": true
+  },
+  {
+    "localizedTextId": 95,
+    "textKeyId": 9001,
+    "languageCode": "zh-Hans",
+    "textValue": "东央铁道",
+    "isReviewed": false
+  },
+  {
+    "localizedTextId": 96,
+    "textKeyId": 9002,
+    "languageCode": "zh-Hans",
+    "textValue": "未来高速铁道",
+    "isReviewed": false
+  },
+  {
+    "localizedTextId": 97,
+    "textKeyId": 9101,
+    "languageCode": "zh-Hans",
+    "textValue": "东央本线",
+    "isReviewed": false
+  },
+  {
+    "localizedTextId": 98,
+    "textKeyId": 9102,
+    "languageCode": "zh-Hans",
+    "textValue": "东央支线",
+    "isReviewed": false
+  },
+  {
+    "localizedTextId": 99,
+    "textKeyId": 9103,
+    "languageCode": "zh-Hans",
+    "textValue": "未来1号线",
+    "isReviewed": false
+  },
+  {
+    "localizedTextId": 100,
+    "textKeyId": 9201,
+    "languageCode": "zh-Hans",
+    "textValue": "中央站",
+    "isReviewed": false
+  },
+  {
+    "localizedTextId": 101,
+    "textKeyId": 9202,
+    "languageCode": "zh-Hans",
+    "textValue": "东央站",
+    "isReviewed": false
+  },
+  {
+    "localizedTextId": 102,
+    "textKeyId": 9203,
+    "languageCode": "zh-Hans",
+    "textValue": "港站",
+    "isReviewed": false
+  },
+  {
+    "localizedTextId": 103,
+    "textKeyId": 9204,
+    "languageCode": "zh-Hans",
+    "textValue": "樱台站",
+    "isReviewed": false
+  },
+  {
+    "localizedTextId": 104,
+    "textKeyId": 9205,
+    "languageCode": "zh-Hans",
+    "textValue": "绿丘站",
+    "isReviewed": false
+  },
+  {
+    "localizedTextId": 105,
+    "textKeyId": 9206,
+    "languageCode": "zh-Hans",
+    "textValue": "樱并木站",
+    "isReviewed": false
+  },
+  {
+    "localizedTextId": 106,
+    "textKeyId": 9207,
+    "languageCode": "zh-Hans",
+    "textValue": "花见台站",
+    "isReviewed": false
+  },
+  {
+    "localizedTextId": 107,
+    "textKeyId": 9208,
+    "languageCode": "zh-Hans",
+    "textValue": "波止场站",
+    "isReviewed": false
+  },
+  {
+    "localizedTextId": 108,
+    "textKeyId": 9209,
+    "languageCode": "zh-Hans",
+    "textValue": "未来滨站",
+    "isReviewed": false
+  }
+]

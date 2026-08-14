@@ -56,14 +56,15 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Prepare Pages artifact
-        # ビルドツール未導入のため、公開に必要なファイルのみを _site へ集約する。
+        # ビルドツール未導入のため、index.html と src/ 配下を丸ごと _site へ集約する。
+        # src/ 配下にファイルが増えても個別の追記は不要（*.test.js のみ除外）。
         # 将来バンドラー（Vite等）を導入したら、このステップは `npm run build` の
         # 出力(dist等)を _site としてアップロードする形に置き換える。
         run: |
-          mkdir -p _site/src
+          mkdir -p _site
           cp index.html _site/
-          cp src/index.js _site/src/
-          cp src/styles.css _site/src/
+          cp -r src _site/src
+          find _site/src -type f -name '*.test.js' -delete
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

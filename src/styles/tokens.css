@@ -12,7 +12,7 @@
   color-scheme: light;
 
   /* カラー：背景・面 */
-  --color-bg: #ffffff;
+  --color-bg: #fff;
   --color-surface: #f5f5f7;
   --color-border: #c7c7c7;
 
@@ -22,11 +22,11 @@
 
   /* カラー：状態 */
   --color-accent: #1d4ed8;
-  --color-on-accent: #ffffff;
+  --color-on-accent: #fff;
   --color-danger: #b3261e;
-  --color-on-danger: #ffffff;
+  --color-on-danger: #fff;
   --color-success: #166534;
-  --color-on-success: #ffffff;
+  --color-on-success: #fff;
 
   /* 路線カラー：JS側（setLineColor）から動的に注入される。未設定時はアクセント色を使う */
   --line-color: var(--color-accent);
@@ -43,8 +43,8 @@
 
   /* フォント */
   --font-family-base:
-    'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, sans-serif;
+    'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic', -apple-system, blinkmacsystemfont, 'Segoe UI',
+    roboto, sans-serif;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
   --font-size-md: 1.25rem;
@@ -67,10 +67,8 @@
   --color-bg: #121212;
   --color-surface: #1e1e1e;
   --color-border: #3a3a3a;
-
   --color-text: #f5f5f5;
   --color-text-secondary: #c7c7c7;
-
   --color-accent: #6ea8fe;
   --color-on-accent: #0b1220;
   --color-danger: #ff8a80;

@@ -27,7 +27,9 @@ figure {
 }
 
 html {
+  /* stylelint-disable-next-line property-no-vendor-prefix -- Safariは無接頭辞版のtext-size-adjustを未サポートのため必要 */
   -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -38,7 +40,7 @@ body {
   line-height: var(--line-height-base);
   color: var(--color-text);
   background-color: var(--color-bg);
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
 }
 

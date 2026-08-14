@@ -39,10 +39,10 @@ jobs:
           plugin_marketplaces: 'https://github.com/anthropics/claude-code.git'
           plugins: 'code-review@claude-code-plugins'
           prompt: '/code-review:code-review ${{ github.repository }}/pull/${{ github.event.pull_request.number }}'
-          allowed_tools: |
-            Bash(npm test:*)
-            Bash(npm run lint:*)
-            Bash(npm run format:check:*)
+          # Bashはデフォルト無効のため、claude_args の --allowedTools で明示的に許可する。
+          # (注: `allowed_tools:` というトップレベル入力は存在せず黙って無視されるため使わないこと)
+          claude_args: |
+            --allowedTools "Bash(npm test:*),Bash(npm run lint:*),Bash(npm run format:check:*)"
           # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
           # or https://code.claude.com/docs/en/cli-reference for available options
 

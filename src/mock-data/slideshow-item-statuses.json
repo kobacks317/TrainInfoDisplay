@@ -1,0 +1,20 @@
+[
+  { "itemStatusId": 1, "slideshowItemId": 1, "trainStatus": "RUNNING" },
+  { "itemStatusId": 2, "slideshowItemId": 1, "trainStatus": "APPROACHING" },
+  { "itemStatusId": 3, "slideshowItemId": 1, "trainStatus": "STOPPED" },
+  { "itemStatusId": 4, "slideshowItemId": 1, "trainStatus": "DEPARTING" },
+  { "itemStatusId": 5, "slideshowItemId": 2, "trainStatus": "STOPPED" },
+  { "itemStatusId": 6, "slideshowItemId": 2, "trainStatus": "DEPARTING" },
+  { "itemStatusId": 7, "slideshowItemId": 3, "trainStatus": "RUNNING" },
+  { "itemStatusId": 8, "slideshowItemId": 3, "trainStatus": "APPROACHING" },
+  { "itemStatusId": 9, "slideshowItemId": 4, "trainStatus": "RUNNING" },
+  { "itemStatusId": 10, "slideshowItemId": 4, "trainStatus": "APPROACHING" },
+  { "itemStatusId": 11, "slideshowItemId": 4, "trainStatus": "STOPPED" },
+  { "itemStatusId": 12, "slideshowItemId": 4, "trainStatus": "DEPARTING" },
+  { "itemStatusId": 13, "slideshowItemId": 5, "trainStatus": "RUNNING" },
+  { "itemStatusId": 14, "slideshowItemId": 5, "trainStatus": "APPROACHING" },
+  { "itemStatusId": 15, "slideshowItemId": 5, "trainStatus": "STOPPED" },
+  { "itemStatusId": 16, "slideshowItemId": 5, "trainStatus": "DEPARTING" },
+  { "itemStatusId": 17, "slideshowItemId": 6, "trainStatus": "RUNNING" },
+  { "itemStatusId": 18, "slideshowItemId": 6, "trainStatus": "APPROACHING" }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "slideshowId": 1,
+    "name": "標準スライドショー(16:9)",
+    "loopEnabled": true,
+    "defaultDurationSec": 8,
+    "isActive": true
+  },
+  {
+    "slideshowId": 2,
+    "name": "お知らせ限定(ループなし)",
+    "loopEnabled": false,
+    "defaultDurationSec": 6,
+    "isActive": true
+  }
+]

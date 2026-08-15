@@ -25,6 +25,9 @@ import templateAreas from './template-areas.json';
 import contentComponents from './content-components.json';
 import screenLayouts from './screen-layouts.json';
 import layoutAreaAssigns from './layout-area-assigns.json';
+import slideshows from './slideshows.json';
+import slideshowItems from './slideshow-items.json';
+import slideshowItemStatuses from './slideshow-item-statuses.json';
 
 export {
   languages,
@@ -51,4 +54,7 @@ export {
   contentComponents,
   screenLayouts,
   layoutAreaAssigns,
+  slideshows,
+  slideshowItems,
+  slideshowItemStatuses,
 };

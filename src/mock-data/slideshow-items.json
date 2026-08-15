@@ -1,0 +1,56 @@
+[
+  {
+    "slideshowItemId": 1,
+    "slideshowId": 1,
+    "layoutId": 1,
+    "displayOrder": 1,
+    "durationSec": null,
+    "transition": "fade",
+    "skipIfNoData": false
+  },
+  {
+    "slideshowItemId": 2,
+    "slideshowId": 1,
+    "layoutId": 1,
+    "displayOrder": 2,
+    "durationSec": 10,
+    "transition": "none",
+    "skipIfNoData": true
+  },
+  {
+    "slideshowItemId": 3,
+    "slideshowId": 1,
+    "layoutId": 1,
+    "displayOrder": 3,
+    "durationSec": 5,
+    "transition": "slide",
+    "skipIfNoData": true
+  },
+  {
+    "slideshowItemId": 4,
+    "slideshowId": 1,
+    "layoutId": 2,
+    "displayOrder": 4,
+    "durationSec": null,
+    "transition": "fade",
+    "skipIfNoData": false
+  },
+  {
+    "slideshowItemId": 5,
+    "slideshowId": 2,
+    "layoutId": 1,
+    "displayOrder": 1,
+    "durationSec": null,
+    "transition": "fade",
+    "skipIfNoData": false
+  },
+  {
+    "slideshowItemId": 6,
+    "slideshowId": 2,
+    "layoutId": 2,
+    "displayOrder": 2,
+    "durationSec": 4,
+    "transition": "slide",
+    "skipIfNoData": true
+  }
+]

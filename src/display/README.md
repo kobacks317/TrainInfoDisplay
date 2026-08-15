@@ -1,7 +1,7 @@
-# 画面テンプレート領域描画エンジン（D-01）
+# 画面テンプレート領域描画エンジン／スライドショー再生エンジン（D-01）
 
-表示ウィンドウ（D系）のD-01案内表示画面が使用する、`SCREEN_TEMPLATE`/`TEMPLATE_AREA`の定義から領域divを動的生成し、`SCREEN_LAYOUT`→`LAYOUT_AREA_ASSIGN`を辿って各領域へコンポーネントを描画するための描画エンジンです。
-参照: `docs/02_screen_design.md` §5.7（D-01）, §4.2（表示ウィンドウ共通仕様） / `docs/01_requirements.md` §7.2（`SCREEN_TEMPLATE`/`TEMPLATE_AREA`/`SCREEN_LAYOUT`/`LAYOUT_AREA_ASSIGN`）
+表示ウィンドウ（D系）のD-01案内表示画面が使用する、`SCREEN_TEMPLATE`/`TEMPLATE_AREA`の定義から領域divを動的生成し、`SCREEN_LAYOUT`→`LAYOUT_AREA_ASSIGN`を辿って各領域へコンポーネントを描画するための描画エンジンと、`SLIDESHOW`/`SLIDESHOW_ITEM`を表示順・列車状態に従って自動再生するエンジンです。
+参照: `docs/02_screen_design.md` §5.7（D-01）, §4.2（表示ウィンドウ共通仕様） / `docs/01_requirements.md` FR-21, FR-22, §7.2（`SCREEN_TEMPLATE`/`TEMPLATE_AREA`/`SCREEN_LAYOUT`/`LAYOUT_AREA_ASSIGN`/`SLIDESHOW`/`SLIDESHOW_ITEM`/`SLIDESHOW_ITEM_STATUS`）
 
 ## ファイル構成
 
@@ -9,6 +9,7 @@
 |---|---|
 | `template-renderer.js` | 公開API。テンプレート領域のdiv生成（`buildTemplateStage`）、レイアウト割当の描画（`renderScreenLayout`）、コンテナへのマウント（`mountScreenLayout`） |
 | `stage-scale.js` | 基準サイズ（`baseWidth`/`baseHeight`）から実際の表示領域サイズへの等比スケーリング計算・適用・リサイズ追従 |
+| `slideshow-player.js` | 公開API。再生対象スライドの抽出（`getEligibleItems`）、表示秒数の解決（`resolveDurationMs`）、自動送り・ループ・状態変更への追従を行う再生エンジン（`createSlideshowPlayer`） |
 
 ## 使い方
 
@@ -52,3 +53,47 @@ unmount();
 ## テスト用モックデータ
 
 `src/mock-data/screen-templates.json`（横型16:9・横型32:9・縦型の3テンプレート）、`template-areas.json`、`content-components.json`（13種の案内コンポーネント）、`screen-layouts.json`、`layout-area-assigns.json`を用意しており、`src/mock-data/index.js`からまとめて参照できます。
+
+## スライドショー再生エンジン（`slideshow-player.js`）
+
+`SLIDESHOW_ITEM`を表示順（`displayOrder`）に評価し、`SLIDESHOW_ITEM_STATUS`に現在の列車状態を含み、かつ表示データが揃っているスライドのみを、指定秒数・ループ設定に従って自動再生する。
+
+```js
+import { createSlideshowPlayer } from './display/slideshow-player.js';
+import { slideshows, slideshowItems, slideshowItemStatuses } from './mock-data/index.js';
+
+const slideshow = slideshows.find((s) => s.slideshowId === 1);
+const items = slideshowItems.filter((i) => i.slideshowId === slideshow.slideshowId);
+
+const player = createSlideshowPlayer({
+  slideshow,
+  items,
+  itemStatuses: slideshowItemStatuses,
+  // 対象領域のコンポーネントに表示すべきデータがあるかどうか（skip_if_no_data用）
+  hasData: (item) => true,
+  onChange({ currentItem, playing }) {
+    if (!currentItem) return; // 対象状態のスライドが1件も無い
+    // currentItem.layoutId のレイアウトを、currentItem.transition の効果でマウントする
+    // （実際のDOM描画はtemplate-renderer.jsのmountScreenLayoutへ委譲する）
+  },
+});
+
+player.start('APPROACHING'); // TRAIN_RUN_STATE.trainStatus の初期値で再生開始
+
+// STATE_UPDATE受信時：現在のスライドを打ち切り、再評価した先頭から再生し直す
+player.setTrainStatus('STOPPED');
+
+// 表示ウィンドウ終了時
+player.stop();
+```
+
+- **抽出ロジック**：`getEligibleItems`が`SLIDESHOW_ITEM_STATUS`から対象列車状態を含むスライドを絞り込み、`skipIfNoData`が真のスライドは`hasData`コールバックが偽を返す間スキップし、残りを`displayOrder`昇順で返す。これを`createSlideshowPlayer`が内部で使用する。
+- **表示秒数**：`resolveDurationMs`が`SLIDESHOW_ITEM.durationSec`（未指定時は`SLIDESHOW.defaultDurationSec`）をミリ秒に変換する。
+- **ループ**：`SLIDESHOW.loopEnabled`が真なら最後のスライドの後に先頭へ戻り、偽なら最後のスライドで自動送りを終了する（表示自体は最後のスライドのまま維持される）。
+- **状態変更への追従**：`setTrainStatus`を呼ぶと、現在の自動送りタイマーを破棄し、新しい列車状態で再評価した対象の先頭スライドから再生し直す（`docs/02_screen_design.md` §5.7 表示ロジック5.に対応）。
+- **切替効果**：`SLIDESHOW_ITEM.transition`（なし／フェード／スライド）はそのまま`onChange`の`currentItem.transition`として渡す。実際のCSS適用・DOM描画は本エンジンのスコープ外とし、呼び出し側（`onChange`）へ委譲する（`template-renderer.js`と同様の設計方針）。
+- **テスト容易性**：`setTimeoutFn`/`clearTimeoutFn`を注入可能にしており、実タイマーを使わずにテストできる（`src/window-channel.js`の`startHeartbeatMonitor`と同様の方式）。
+
+### テスト用モックデータ
+
+`src/mock-data/slideshows.json`（ループ有無の異なる2スライドショー）、`slideshow-items.json`、`slideshow-item-statuses.json`を用意しており、`src/mock-data/index.js`からまとめて参照できます。

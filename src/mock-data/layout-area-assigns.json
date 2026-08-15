@@ -1,0 +1,93 @@
+[
+  {
+    "assignId": 1,
+    "layoutId": 1,
+    "areaId": 1,
+    "componentId": 1,
+    "optionValues": { "stationNumberVisible": true }
+  },
+  {
+    "assignId": 2,
+    "layoutId": 1,
+    "areaId": 2,
+    "componentId": 6,
+    "optionValues": { "displayRange": "all" }
+  },
+  {
+    "assignId": 3,
+    "layoutId": 1,
+    "areaId": 3,
+    "componentId": 8,
+    "optionValues": { "symbolMaxCount": 4 }
+  },
+  {
+    "assignId": 4,
+    "layoutId": 1,
+    "areaId": 4,
+    "componentId": 9,
+    "optionValues": { "scrollEnabled": true }
+  },
+  {
+    "assignId": 5,
+    "layoutId": 2,
+    "areaId": 6,
+    "componentId": 5,
+    "optionValues": {}
+  },
+  {
+    "assignId": 6,
+    "layoutId": 2,
+    "areaId": 7,
+    "componentId": 6,
+    "optionValues": { "displayRange": "near_5" }
+  },
+  {
+    "assignId": 7,
+    "layoutId": 2,
+    "areaId": 8,
+    "componentId": 9,
+    "optionValues": { "scrollEnabled": true }
+  },
+  {
+    "assignId": 8,
+    "layoutId": 2,
+    "areaId": 9,
+    "componentId": 8,
+    "optionValues": { "symbolMaxCount": 3 }
+  },
+  {
+    "assignId": 9,
+    "layoutId": 2,
+    "areaId": 10,
+    "componentId": 12,
+    "optionValues": {}
+  },
+  {
+    "assignId": 10,
+    "layoutId": 3,
+    "areaId": 11,
+    "componentId": 1,
+    "optionValues": { "stationNumberVisible": true }
+  },
+  {
+    "assignId": 11,
+    "layoutId": 3,
+    "areaId": 12,
+    "componentId": 6,
+    "optionValues": { "displayRange": "all" }
+  },
+  {
+    "assignId": 12,
+    "layoutId": 3,
+    "areaId": 13,
+    "componentId": 8,
+    "optionValues": { "symbolMaxCount": 3 }
+  },
+  {
+    "assignId": 13,
+    "layoutId": 3,
+    "areaId": 14,
+    "componentId": 13,
+    "optionValues": {}
+  }
+]

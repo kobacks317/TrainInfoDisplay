@@ -1,0 +1,29 @@
+[
+  {
+    "templateId": 1,
+    "templateCode": "TPL-16X9-BASIC",
+    "name": "横型基本(16:9)",
+    "orientation": "横",
+    "baseWidth": 1920,
+    "baseHeight": 1080,
+    "thumbnailUrl": "/thumbnails/tpl-16x9-basic.png"
+  },
+  {
+    "templateId": 2,
+    "templateCode": "TPL-32X9-WIDE",
+    "name": "横型ワイド(32:9)",
+    "orientation": "横",
+    "baseWidth": 3840,
+    "baseHeight": 1080,
+    "thumbnailUrl": "/thumbnails/tpl-32x9-wide.png"
+  },
+  {
+    "templateId": 3,
+    "templateCode": "TPL-VERTICAL-BASIC",
+    "name": "縦型基本",
+    "orientation": "縦",
+    "baseWidth": 1080,
+    "baseHeight": 1920,
+    "thumbnailUrl": "/thumbnails/tpl-vertical-basic.png"
+  }
+]

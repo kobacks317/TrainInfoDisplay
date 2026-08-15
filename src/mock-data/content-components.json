@@ -1,0 +1,106 @@
+[
+  {
+    "componentId": 1,
+    "componentCode": "current_next_station",
+    "name": "現在／次駅",
+    "category": "位置案内",
+    "htmlPath": "/components/current-next-station.html",
+    "minSize": "大"
+  },
+  {
+    "componentId": 2,
+    "componentCode": "line_info",
+    "name": "路線情報",
+    "category": "位置案内",
+    "htmlPath": "/components/line-info.html",
+    "minSize": "小"
+  },
+  {
+    "componentId": 3,
+    "componentCode": "train_type",
+    "name": "列車種別",
+    "category": "列車情報",
+    "htmlPath": "/components/train-type.html",
+    "minSize": "小"
+  },
+  {
+    "componentId": 4,
+    "componentCode": "destination",
+    "name": "行先",
+    "category": "列車情報",
+    "htmlPath": "/components/destination.html",
+    "minSize": "小"
+  },
+  {
+    "componentId": 5,
+    "componentCode": "train_status",
+    "name": "列車状態",
+    "category": "列車情報",
+    "htmlPath": "/components/train-status.html",
+    "minSize": "小"
+  },
+  {
+    "componentId": 6,
+    "componentCode": "route_map",
+    "name": "路線図",
+    "category": "位置案内",
+    "htmlPath": "/components/route-map.html",
+    "minSize": "大"
+  },
+  {
+    "componentId": 7,
+    "componentCode": "travel_time",
+    "name": "所要時間",
+    "category": "位置案内",
+    "htmlPath": "/components/travel-time.html",
+    "minSize": "中"
+  },
+  {
+    "componentId": 8,
+    "componentCode": "transfer",
+    "name": "乗換案内",
+    "category": "乗換案内",
+    "htmlPath": "/components/transfer.html",
+    "minSize": "中"
+  },
+  {
+    "componentId": 9,
+    "componentCode": "notice",
+    "name": "注意事項",
+    "category": "お知らせ",
+    "htmlPath": "/components/notice.html",
+    "minSize": "中"
+  },
+  {
+    "componentId": 10,
+    "componentCode": "delay_info",
+    "name": "遅延状況",
+    "category": "列車情報",
+    "htmlPath": "/components/delay-info.html",
+    "minSize": "小"
+  },
+  {
+    "componentId": 11,
+    "componentCode": "platform_guide",
+    "name": "ホーム案内",
+    "category": "位置案内",
+    "htmlPath": "/components/platform-guide.html",
+    "minSize": "大"
+  },
+  {
+    "componentId": 12,
+    "componentCode": "car_info",
+    "name": "号車案内",
+    "category": "号車案内",
+    "htmlPath": "/components/car-info.html",
+    "minSize": "中"
+  },
+  {
+    "componentId": 13,
+    "componentCode": "door_side",
+    "name": "ドア開閉方向",
+    "category": "位置案内",
+    "htmlPath": "/components/door-side.html",
+    "minSize": "小"
+  }
+]

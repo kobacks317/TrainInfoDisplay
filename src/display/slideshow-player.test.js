@@ -52,7 +52,9 @@ describe('getEligibleItems', () => {
     const itemStatuses = [makeStatus(1, 'RUNNING'), makeStatus(2, 'STOPPED')];
 
     expect(
-      getEligibleItems({ items, itemStatuses, trainStatus: 'RUNNING' }).map((i) => i.slideshowItemId),
+      getEligibleItems({ items, itemStatuses, trainStatus: 'RUNNING' }).map(
+        (i) => i.slideshowItemId,
+      ),
     ).toEqual([1]);
   });
 
@@ -65,7 +67,9 @@ describe('getEligibleItems', () => {
     const itemStatuses = items.map((i) => makeStatus(i.slideshowItemId, 'RUNNING'));
 
     expect(
-      getEligibleItems({ items, itemStatuses, trainStatus: 'RUNNING' }).map((i) => i.slideshowItemId),
+      getEligibleItems({ items, itemStatuses, trainStatus: 'RUNNING' }).map(
+        (i) => i.slideshowItemId,
+      ),
     ).toEqual([2, 3, 1]);
   });
 
@@ -89,7 +93,9 @@ describe('getEligibleItems', () => {
     const itemStatuses = [makeStatus(1, 'RUNNING')];
 
     expect(
-      getEligibleItems({ items, itemStatuses, trainStatus: 'RUNNING' }).map((i) => i.slideshowItemId),
+      getEligibleItems({ items, itemStatuses, trainStatus: 'RUNNING' }).map(
+        (i) => i.slideshowItemId,
+      ),
     ).toEqual([1]);
   });
 });

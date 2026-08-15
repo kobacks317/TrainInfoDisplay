@@ -1,0 +1,142 @@
+[
+  {
+    "areaId": 1,
+    "templateId": 1,
+    "areaCode": "header",
+    "posX": 0,
+    "posY": 0,
+    "width": 100,
+    "height": 15,
+    "zIndex": 1
+  },
+  {
+    "areaId": 2,
+    "templateId": 1,
+    "areaCode": "main-map",
+    "posX": 0,
+    "posY": 15,
+    "width": 65,
+    "height": 70,
+    "zIndex": 1
+  },
+  {
+    "areaId": 3,
+    "templateId": 1,
+    "areaCode": "sidebar",
+    "posX": 65,
+    "posY": 15,
+    "width": 35,
+    "height": 70,
+    "zIndex": 1
+  },
+  {
+    "areaId": 4,
+    "templateId": 1,
+    "areaCode": "footer",
+    "posX": 0,
+    "posY": 85,
+    "width": 100,
+    "height": 15,
+    "zIndex": 1
+  },
+  {
+    "areaId": 5,
+    "templateId": 1,
+    "areaCode": "interrupt",
+    "posX": 10,
+    "posY": 30,
+    "width": 80,
+    "height": 40,
+    "zIndex": 10
+  },
+  {
+    "areaId": 6,
+    "templateId": 2,
+    "areaCode": "left-panel",
+    "posX": 0,
+    "posY": 0,
+    "width": 20,
+    "height": 100,
+    "zIndex": 1
+  },
+  {
+    "areaId": 7,
+    "templateId": 2,
+    "areaCode": "center-map",
+    "posX": 20,
+    "posY": 0,
+    "width": 60,
+    "height": 85,
+    "zIndex": 1
+  },
+  {
+    "areaId": 8,
+    "templateId": 2,
+    "areaCode": "footer-ticker",
+    "posX": 20,
+    "posY": 85,
+    "width": 60,
+    "height": 15,
+    "zIndex": 1
+  },
+  {
+    "areaId": 9,
+    "templateId": 2,
+    "areaCode": "right-panel-top",
+    "posX": 80,
+    "posY": 0,
+    "width": 20,
+    "height": 50,
+    "zIndex": 1
+  },
+  {
+    "areaId": 10,
+    "templateId": 2,
+    "areaCode": "right-panel-bottom",
+    "posX": 80,
+    "posY": 50,
+    "width": 20,
+    "height": 50,
+    "zIndex": 1
+  },
+  {
+    "areaId": 11,
+    "templateId": 3,
+    "areaCode": "header",
+    "posX": 0,
+    "posY": 0,
+    "width": 100,
+    "height": 10,
+    "zIndex": 1
+  },
+  {
+    "areaId": 12,
+    "templateId": 3,
+    "areaCode": "map",
+    "posX": 0,
+    "posY": 10,
+    "width": 100,
+    "height": 50,
+    "zIndex": 1
+  },
+  {
+    "areaId": 13,
+    "templateId": 3,
+    "areaCode": "transfer",
+    "posX": 0,
+    "posY": 60,
+    "width": 100,
+    "height": 25,
+    "zIndex": 1
+  },
+  {
+    "areaId": 14,
+    "templateId": 3,
+    "areaCode": "footer",
+    "posX": 0,
+    "posY": 85,
+    "width": 100,
+    "height": 15,
+    "zIndex": 1
+  }
+]

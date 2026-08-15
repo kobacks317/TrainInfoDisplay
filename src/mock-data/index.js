@@ -20,6 +20,11 @@ import trainStops from './train-stops.json';
 import formations from './formations.json';
 import cars from './cars.json';
 import carFacilities from './car-facilities.json';
+import screenTemplates from './screen-templates.json';
+import templateAreas from './template-areas.json';
+import contentComponents from './content-components.json';
+import screenLayouts from './screen-layouts.json';
+import layoutAreaAssigns from './layout-area-assigns.json';
 
 export {
   languages,
@@ -41,4 +46,9 @@ export {
   formations,
   cars,
   carFacilities,
+  screenTemplates,
+  templateAreas,
+  contentComponents,
+  screenLayouts,
+  layoutAreaAssigns,
 };

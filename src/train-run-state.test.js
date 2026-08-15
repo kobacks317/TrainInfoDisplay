@@ -235,7 +235,12 @@ describe('updateTrainRunState', () => {
   it('currentLineIdが未設定の場合はエラーになり、ストアは変更されない', () => {
     setup();
     expect(() =>
-      updateTrainRunState(200, { trainStatus: 'RUNNING', currentStationId: 10 }, trainStops, () => 't1'),
+      updateTrainRunState(
+        200,
+        { trainStatus: 'RUNNING', currentStationId: 10 },
+        trainStops,
+        () => 't1',
+      ),
     ).toThrow('currentLineId');
     expect(getTrainRunState(200)).toBeUndefined();
   });

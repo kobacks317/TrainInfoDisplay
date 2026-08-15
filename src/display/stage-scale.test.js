@@ -47,7 +47,9 @@ describe('computeStageScale', () => {
   });
 
   it('ビューポートサイズが0以下の場合はscale=0を返し、例外を投げない（起動直後のレイアウト未確定に対応）', () => {
-    expect(computeStageScale({ baseWidth: 1920, baseHeight: 1080, viewportWidth: 0, viewportHeight: 0 })).toEqual({
+    expect(
+      computeStageScale({ baseWidth: 1920, baseHeight: 1080, viewportWidth: 0, viewportHeight: 0 }),
+    ).toEqual({
       scale: 0,
       offsetX: 0,
       offsetY: 0,
@@ -56,7 +58,12 @@ describe('computeStageScale', () => {
 
   it('baseWidth/baseHeightが0以下の場合は例外を投げる', () => {
     expect(() =>
-      computeStageScale({ baseWidth: 0, baseHeight: 1080, viewportWidth: 100, viewportHeight: 100 }),
+      computeStageScale({
+        baseWidth: 0,
+        baseHeight: 1080,
+        viewportWidth: 100,
+        viewportHeight: 100,
+      }),
     ).toThrow();
   });
 });

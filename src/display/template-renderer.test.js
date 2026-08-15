@@ -120,8 +120,20 @@ describe('renderScreenLayout', () => {
       layout: layout16x9,
       assigns: [
         ...layoutAreaAssigns,
-        { assignId: 999, layoutId: layout16x9.layoutId, areaId: 9999, componentId: 1, optionValues: {} },
-        { assignId: 1000, layoutId: layout16x9.layoutId, areaId: 4, componentId: 9999, optionValues: {} },
+        {
+          assignId: 999,
+          layoutId: layout16x9.layoutId,
+          areaId: 9999,
+          componentId: 1,
+          optionValues: {},
+        },
+        {
+          assignId: 1000,
+          layoutId: layout16x9.layoutId,
+          areaId: 4,
+          componentId: 9999,
+          optionValues: {},
+        },
       ],
       components: contentComponents,
     });

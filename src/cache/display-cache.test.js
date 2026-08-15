@@ -1,10 +1,10 @@
 import { describe, expect, it, vi } from 'vitest';
+import { IDBFactory } from 'fake-indexeddb';
 import { createDisplayCache, loadCacheFirst, handleConfigUpdate } from './display-cache.js';
-import { createMemoryIndexedDb } from './memory-indexed-db.js';
 import { openCacheDatabase, idbPut } from './idb-driver.js';
 
 function setupCache(overrides = {}) {
-  const idbFactory = createMemoryIndexedDb();
+  const idbFactory = new IDBFactory();
   const cache = createDisplayCache({ idbFactory, dbName: 'test-display-cache', ...overrides });
   return { idbFactory, cache };
 }
@@ -83,7 +83,7 @@ describe('createDisplayCache: invalidateScreenDefinitions / clearAll', () => {
 
 describe('createDisplayCache: スキーマバージョニング', () => {
   it('保存時とスキーマバージョンが異なるレコードは無効なキャッシュとして扱われる', async () => {
-    const idbFactory = createMemoryIndexedDb();
+    const idbFactory = new IDBFactory();
     const dbName = 'test-display-cache-version-mismatch';
 
     // 通常のAPIでは常に現在のschemaVersionで保存されるため、意図的に古いバージョンのレコードを
@@ -106,7 +106,7 @@ describe('createDisplayCache: スキーマバージョニング', () => {
   });
 
   it('バージョンアップすると旧データは破棄される', async () => {
-    const idbFactory = createMemoryIndexedDb();
+    const idbFactory = new IDBFactory();
     const dbName = 'test-display-cache-upgrade';
 
     const cacheV1 = createDisplayCache({ idbFactory, dbName, schemaVersion: 1 });

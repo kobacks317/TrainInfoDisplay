@@ -26,7 +26,14 @@ export function openCacheDatabase({ idbFactory, dbName, version, storeNames }) {
         db.createObjectStore(name);
       }
     };
-    request.onsuccess = () => resolve(request.result);
+    request.onsuccess = () => {
+      const db = request.result;
+      // 他のタブ／表示ウィンドウが上位バージョンで開こうとした際、この接続を開いたままだと
+      // versionchangeがブロックされ相手の open() が永久に解決しなくなる。
+      // IndexedDBの標準的な作法として、versionchange通知を受けたら自接続を閉じる。
+      db.onversionchange = () => db.close();
+      resolve(db);
+    };
     request.onerror = () => reject(request.error);
   });
 }

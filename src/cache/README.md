@@ -9,7 +9,6 @@
 |---|---|
 | `idb-driver.js` | IndexedDBの薄いPromiseラッパー（open・get・put・delete・clear・getAll） |
 | `display-cache.js` | 公開API。マスタデータ／画面定義／現在状態の保存・取得、スキーマバージョニング、キャッシュ優先表示フロー、`CONFIG_UPDATE`時の再取得 |
-| `memory-indexed-db.js` | テスト用の最小限のIndexedDB互換ファクトリ（下記「テストについて」を参照） |
 
 ## 使い方
 
@@ -38,4 +37,4 @@ await handleConfigUpdate(cache, () => fetchScreenDefinitionsFromServer());
 
 ## テストについて
 
-受け入れ条件では単体テストに`fake-indexeddb`等の利用が想定されていますが、この変更を行った環境ではネットワークを伴う`npm install`が許可ツールの範囲外で実行できず、新規devDependencyを追加できませんでした。そのため`memory-indexed-db.js`に、`idb-driver.js`が実際に使う範囲（`open`/`onupgradeneeded`/`transaction`/`get`/`put`/`delete`/`clear`/`getAll`）に限定した最小限のIndexedDB互換フェイクを自前で用意し、それをテストで注入しています。`fake-indexeddb`パッケージが追加可能になった場合は、そちらへの置き換えを推奨します。
+単体テストは`fake-indexeddb`（`IDBFactory`）を使用し、テストごとに新しいインスタンスを生成することでデータベースの状態を分離しています。

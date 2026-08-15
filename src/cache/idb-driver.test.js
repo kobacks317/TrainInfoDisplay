@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
+import { IDBFactory } from 'fake-indexeddb';
 import { openCacheDatabase, idbGet, idbGetAll, idbPut, idbDelete, idbClear } from './idb-driver.js';
-import { createMemoryIndexedDb } from './memory-indexed-db.js';
 
 function openTestDb(idbFactory, { dbName = 'test-db', version = 1, storeNames = ['items'] } = {}) {
   return openCacheDatabase({ idbFactory, dbName, version, storeNames });
@@ -8,7 +8,7 @@ function openTestDb(idbFactory, { dbName = 'test-db', version = 1, storeNames = 
 
 describe('openCacheDatabase / idbGet / idbPut', () => {
   it('保存した値を取得できる', async () => {
-    const idbFactory = createMemoryIndexedDb();
+    const idbFactory = new IDBFactory();
     const db = await openTestDb(idbFactory);
 
     await idbPut(db, 'items', 'a', { value: 1 });
@@ -17,14 +17,14 @@ describe('openCacheDatabase / idbGet / idbPut', () => {
   });
 
   it('未保存のキーはundefinedを返す', async () => {
-    const idbFactory = createMemoryIndexedDb();
+    const idbFactory = new IDBFactory();
     const db = await openTestDb(idbFactory);
 
     expect(await idbGet(db, 'items', 'missing')).toBeUndefined();
   });
 
   it('同じキーへのputは上書きする', async () => {
-    const idbFactory = createMemoryIndexedDb();
+    const idbFactory = new IDBFactory();
     const db = await openTestDb(idbFactory);
 
     await idbPut(db, 'items', 'a', { value: 1 });
@@ -36,7 +36,7 @@ describe('openCacheDatabase / idbGet / idbPut', () => {
 
 describe('idbGetAll', () => {
   it('ストア内の全ての値を返す', async () => {
-    const idbFactory = createMemoryIndexedDb();
+    const idbFactory = new IDBFactory();
     const db = await openTestDb(idbFactory);
 
     await idbPut(db, 'items', 'a', { value: 1 });
@@ -50,7 +50,7 @@ describe('idbGetAll', () => {
 
 describe('idbDelete / idbClear', () => {
   it('idbDeleteは指定キーのみ削除する', async () => {
-    const idbFactory = createMemoryIndexedDb();
+    const idbFactory = new IDBFactory();
     const db = await openTestDb(idbFactory);
     await idbPut(db, 'items', 'a', 1);
     await idbPut(db, 'items', 'b', 2);
@@ -62,7 +62,7 @@ describe('idbDelete / idbClear', () => {
   });
 
   it('idbClearはストア内の全レコードを削除する', async () => {
-    const idbFactory = createMemoryIndexedDb();
+    const idbFactory = new IDBFactory();
     const db = await openTestDb(idbFactory);
     await idbPut(db, 'items', 'a', 1);
     await idbPut(db, 'items', 'b', 2);
@@ -75,7 +75,7 @@ describe('idbDelete / idbClear', () => {
 
 describe('スキーマバージョニング', () => {
   it('同じバージョンで再度開いてもデータは保持される', async () => {
-    const idbFactory = createMemoryIndexedDb();
+    const idbFactory = new IDBFactory();
     let db = await openTestDb(idbFactory, { version: 1 });
     await idbPut(db, 'items', 'a', { value: 1 });
 
@@ -85,7 +85,7 @@ describe('スキーマバージョニング', () => {
   });
 
   it('より大きいバージョンで開くと、全オブジェクトストアが作り直され旧データは破棄される', async () => {
-    const idbFactory = createMemoryIndexedDb();
+    const idbFactory = new IDBFactory();
     let db = await openTestDb(idbFactory, { version: 1, storeNames: ['items'] });
     await idbPut(db, 'items', 'a', { value: 1 });
 

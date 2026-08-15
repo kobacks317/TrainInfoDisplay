@@ -34,6 +34,7 @@
  * @property {number} [viaTextKeyId] - 経由表記 FK -> TextKey.textKeyId
  * @property {string} operationDays - 運転日パターン
  * @property {string} [sourceSystem] - 同期元
+ * @property {string} [sourceUpdatedAt] - 外部システム側の最終更新日時（ISO日時文字列）
  * @property {string} [syncedAt] - 同期日時（ISO日時文字列）
  */
 
@@ -75,6 +76,8 @@
  * @property {number} carCount - 両数
  * @property {number} [seriesTextKeyId] - 形式名 FK -> TextKey.textKeyId
  * @property {string} [sourceSystem] - 同期元
+ * @property {string} [sourceUpdatedAt] - 外部システム側の最終更新日時（ISO日時文字列）
+ * @property {string} [syncedAt] - 同期日時（ISO日時文字列）
  */
 
 /**

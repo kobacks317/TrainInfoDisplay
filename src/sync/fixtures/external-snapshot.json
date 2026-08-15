@@ -1,0 +1,23 @@
+[
+  {
+    "operatorId": 1,
+    "operatorCode": "TOU",
+    "nameTextKeyId": 9001,
+    "sourceSystem": "external-mock",
+    "sourceUpdatedAt": "2026-08-01T00:00:00+09:00"
+  },
+  {
+    "operatorId": 2,
+    "operatorCode": "MRT2",
+    "nameTextKeyId": 9002,
+    "sourceSystem": "external-mock",
+    "sourceUpdatedAt": "2026-08-14T10:00:00+09:00"
+  },
+  {
+    "operatorId": 3,
+    "operatorCode": "RKT",
+    "nameTextKeyId": 9003,
+    "sourceSystem": "external-mock",
+    "sourceUpdatedAt": "2026-08-14T10:00:00+09:00"
+  }
+]

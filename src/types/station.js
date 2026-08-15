@@ -8,6 +8,7 @@
  * @property {string} operatorCode - 事業者コード（UK）
  * @property {number} nameTextKeyId - 事業者名 FK -> TextKey.textKeyId
  * @property {string} [sourceSystem] - 同期元
+ * @property {string} [sourceUpdatedAt] - 外部システム側の最終更新日時（ISO日時文字列）
  * @property {string} [syncedAt] - 同期日時（ISO日時文字列）
  */
 
@@ -21,6 +22,7 @@
  * @property {string} primaryColor - 代表カラー
  * @property {number} displayOrder - 表示順
  * @property {string} [sourceSystem] - 同期元
+ * @property {string} [sourceUpdatedAt] - 外部システム側の最終更新日時（ISO日時文字列）
  * @property {string} [syncedAt] - 同期日時（ISO日時文字列）
  */
 
@@ -33,6 +35,7 @@
  * @property {number} [latitude] - 緯度
  * @property {number} [longitude] - 経度
  * @property {string} [sourceSystem] - 同期元
+ * @property {string} [sourceUpdatedAt] - 外部システム側の最終更新日時（ISO日時文字列）
  * @property {string} [syncedAt] - 同期日時（ISO日時文字列）
  */
 

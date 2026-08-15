@@ -4,13 +4,17 @@
     "formationCode": "TOU-8000-A",
     "carCount": 8,
     "seriesTextKeyId": 9801,
-    "sourceSystem": "mock"
+    "sourceSystem": "mock",
+    "sourceUpdatedAt": "2026-08-01T00:00:00+09:00",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
   },
   {
     "formationId": 2,
     "formationCode": "MRT-3000-B",
     "carCount": 4,
     "seriesTextKeyId": 9802,
-    "sourceSystem": "mock"
+    "sourceSystem": "mock",
+    "sourceUpdatedAt": "2026-08-01T00:00:00+09:00",
+    "syncedAt": "2026-08-01T00:00:00+09:00"
   }
 ]

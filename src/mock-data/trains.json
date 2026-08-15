@@ -7,6 +7,7 @@
     "trainNumber": "1001",
     "operationDays": "平日",
     "sourceSystem": "mock",
+    "sourceUpdatedAt": "2026-08-01T00:00:00+09:00",
     "syncedAt": "2026-08-01T00:00:00+09:00"
   },
   {
@@ -17,6 +18,7 @@
     "trainNumber": "5001",
     "operationDays": "毎日",
     "sourceSystem": "mock",
+    "sourceUpdatedAt": "2026-08-01T00:00:00+09:00",
     "syncedAt": "2026-08-01T00:00:00+09:00"
   },
   {
@@ -28,6 +30,7 @@
     "viaTextKeyId": 9701,
     "operationDays": "毎日",
     "sourceSystem": "mock",
+    "sourceUpdatedAt": "2026-08-01T00:00:00+09:00",
     "syncedAt": "2026-08-01T00:00:00+09:00"
   },
   {
@@ -39,6 +42,7 @@
     "viaTextKeyId": 9702,
     "operationDays": "毎日",
     "sourceSystem": "mock",
+    "sourceUpdatedAt": "2026-08-01T00:00:00+09:00",
     "syncedAt": "2026-08-01T00:00:00+09:00"
   }
 ]

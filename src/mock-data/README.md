@@ -116,6 +116,10 @@
 
 翻訳取得・フォールバック・巡回表示・未翻訳検出のAPIは `src/localization.js` を参照してください。
 
+## 外部DB同期（`source_system`/`source_updated_at`/`synced_at`）
+
+`docs/01_requirements.md` §3（決定事項No.1）に対応し、`OPERATOR`/`LINE`/`STATION`/`TRAIN`/`FORMATION`の各レコードは`sourceSystem`/`sourceUpdatedAt`/`syncedAt`を保持しています。外部DBからの取込・差分検出・これらフィールドの更新を模したスタブは`src/sync/external-sync.js`を参照してください。
+
 ## バリデーション
 
 `mock-data.test.js` で以下を確認しています。

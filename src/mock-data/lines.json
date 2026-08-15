@@ -7,6 +7,7 @@
     "primaryColor": "#0072BC",
     "displayOrder": 1,
     "sourceSystem": "mock",
+    "sourceUpdatedAt": "2026-08-01T00:00:00+09:00",
     "syncedAt": "2026-08-01T00:00:00+09:00"
   },
   {
@@ -17,6 +18,7 @@
     "primaryColor": "#009944",
     "displayOrder": 2,
     "sourceSystem": "mock",
+    "sourceUpdatedAt": "2026-08-01T00:00:00+09:00",
     "syncedAt": "2026-08-01T00:00:00+09:00"
   },
   {
@@ -27,6 +29,7 @@
     "primaryColor": "#F39800",
     "displayOrder": 1,
     "sourceSystem": "mock",
+    "sourceUpdatedAt": "2026-08-01T00:00:00+09:00",
     "syncedAt": "2026-08-01T00:00:00+09:00"
   }
 ]

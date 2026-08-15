@@ -200,6 +200,21 @@ describe('generateSymbolSvg', () => {
       expect(svg).toContain('>JY</text>');
       expect(svg).not.toContain('{{');
     });
+
+    it('bgColor/textColor/fontFamily中の特殊文字をエスケープする（XSS対策）', () => {
+      const design = makeSymbolDesign({
+        svgTemplate:
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {{width}} {{height}}"><rect width="{{width}}" height="{{height}}" fill="{{bgColor}}"/><text fill="{{textColor}}" font-family="{{fontFamily}}">{{text}}</text></svg>',
+        fontFamily: '"><script>alert(3)</script>',
+      });
+      const svg = generateSymbolSvg(design, {
+        text: 'JY',
+        bgColor: '"><script>alert(1)</script>',
+        textColor: '"><script>alert(2)</script>',
+      });
+      expect(svg).not.toContain('<script>');
+      expect(svg).toContain('&lt;script&gt;');
+    });
   });
 });
 

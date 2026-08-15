@@ -154,7 +154,7 @@ describe('updateTrainRunState', () => {
 
     const state = updateTrainRunState(
       200,
-      { trainStatus: 'APPROACHING', currentStationId: 10 },
+      { trainStatus: 'APPROACHING', currentLineId: 1, currentStationId: 10 },
       trainStops,
       fixedNow,
     );
@@ -162,6 +162,7 @@ describe('updateTrainRunState', () => {
     expect(state).toEqual({
       trainRunId: 200,
       trainStatus: 'APPROACHING',
+      currentLineId: 1,
       currentStationId: 10,
       nextStopStationId: 11,
       nextPassStationId: undefined,
@@ -175,7 +176,7 @@ describe('updateTrainRunState', () => {
     setup();
     updateTrainRunState(
       200,
-      { trainStatus: 'RUNNING', currentStationId: 10 },
+      { trainStatus: 'RUNNING', currentLineId: 1, currentStationId: 10 },
       trainStops,
       () => 't1',
     );
@@ -197,7 +198,7 @@ describe('updateTrainRunState', () => {
     setup();
     updateTrainRunState(
       200,
-      { trainStatus: 'RUNNING', currentStationId: 10 },
+      { trainStatus: 'RUNNING', currentLineId: 1, currentStationId: 10 },
       trainStops,
       () => 't1',
     );
@@ -221,7 +222,7 @@ describe('updateTrainRunState', () => {
     setup();
     const state = updateTrainRunState(
       200,
-      { trainId: 2, trainStatus: 'APPROACHING', currentStationId: 10 },
+      { trainId: 2, trainStatus: 'APPROACHING', currentLineId: 1, currentStationId: 10 },
       trainStops,
       () => 't1',
     );
@@ -229,5 +230,75 @@ describe('updateTrainRunState', () => {
     // trainId=2の経由駅では次の通過駅(20)が算出される一方、状態には保存されない
     expect(state.nextPassStationId).toBe(20);
     expect(state).not.toHaveProperty('trainId');
+  });
+
+  it('currentLineIdが未設定の場合はエラーになり、ストアは変更されない', () => {
+    setup();
+    expect(() =>
+      updateTrainRunState(
+        200,
+        { trainStatus: 'RUNNING', currentStationId: 10 },
+        trainStops,
+        () => 't1',
+      ),
+    ).toThrow('currentLineId');
+    expect(getTrainRunState(200)).toBeUndefined();
+  });
+
+  it.each([-0.1, 1.1, Number.NaN])(
+    'progressRatioが0〜1の範囲外（%s）の場合はエラーになる',
+    (progressRatio) => {
+      setup();
+      expect(() =>
+        updateTrainRunState(
+          200,
+          { trainStatus: 'RUNNING', currentLineId: 1, currentStationId: 10, progressRatio },
+          trainStops,
+          () => 't1',
+        ),
+      ).toThrow('progressRatio');
+    },
+  );
+
+  it('progressRatioが0〜1の範囲内であれば許可される', () => {
+    setup();
+    const state = updateTrainRunState(
+      200,
+      { trainStatus: 'RUNNING', currentLineId: 1, currentStationId: 10, progressRatio: 0.5 },
+      trainStops,
+      () => 't1',
+    );
+    expect(state.progressRatio).toBe(0.5);
+  });
+
+  it.each([-1, 1000])('delayMinutesが0〜999の範囲外（%s）の場合はエラーになる', (delayMinutes) => {
+    setup();
+    expect(() =>
+      updateTrainRunState(
+        200,
+        { trainStatus: 'RUNNING', currentLineId: 1, currentStationId: 10, delayMinutes },
+        trainStops,
+        () => 't1',
+      ),
+    ).toThrow('delayMinutes');
+  });
+
+  it('currentStationIdが明示的にnullへ更新された場合、次駅情報を持ち越さない', () => {
+    setup();
+    updateTrainRunState(
+      200,
+      { trainStatus: 'RUNNING', currentLineId: 1, currentStationId: 10 },
+      trainStops,
+      () => 't1',
+    );
+    const state = updateTrainRunState(
+      200,
+      { trainStatus: 'RUNNING', currentStationId: null },
+      trainStops,
+      () => 't2',
+    );
+
+    expect(state.nextStopStationId).toBeUndefined();
+    expect(state.nextPassStationId).toBeUndefined();
   });
 });

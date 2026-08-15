@@ -123,8 +123,47 @@ export function validateTrainStatus(trainStatus, trainStops, trainId, currentSta
 }
 
 /**
+ * 状態フィールドの値域を検証する。
+ * 参照: docs/01_requirements.md §7.2 TRAIN_RUN_STATE（currentLineId必須、progressRatio 0〜1、delayMinutes 0〜999）
+ *
+ * @param {Partial<TrainRunState>} merged
+ * @returns {{ valid: boolean, reason?: string }}
+ */
+function validateStateFields(merged) {
+  if (merged.currentLineId == null) {
+    return { valid: false, reason: 'currentLineId は必須です' };
+  }
+  if (
+    merged.progressRatio != null &&
+    (typeof merged.progressRatio !== 'number' ||
+      Number.isNaN(merged.progressRatio) ||
+      merged.progressRatio < 0 ||
+      merged.progressRatio > 1)
+  ) {
+    return {
+      valid: false,
+      reason: `progressRatioは0〜1の範囲である必要があります: ${merged.progressRatio}`,
+    };
+  }
+  if (
+    merged.delayMinutes != null &&
+    (typeof merged.delayMinutes !== 'number' ||
+      Number.isNaN(merged.delayMinutes) ||
+      merged.delayMinutes < 0 ||
+      merged.delayMinutes > 999)
+  ) {
+    return {
+      valid: false,
+      reason: `delayMinutesは0〜999の範囲である必要があります: ${merged.delayMinutes}`,
+    };
+  }
+  return { valid: true };
+}
+
+/**
  * `TRAIN_RUN_STATE` を上書き更新する（履歴を持たない、1運行1レコード）。
- * 状態の妥当性検証を行い、現在駅が指定されていれば次の停車駅・次の通過駅を自動算出して保存する。
+ * 状態の妥当性検証（列車状態・必須項目・値域）を行い、現在駅が指定されていれば次の停車駅・次の通過駅を自動算出して保存する。
+ * 検証に失敗した場合はストアを変更せず例外を投げる。
  *
  * @param {number} trainRunId
  * @param {Partial<TrainRunState> & { trainId?: number }} patch - 差分。`trainId` は次駅算出用で、状態には保存しない
@@ -158,6 +197,11 @@ export function updateTrainRunState(
     throw new Error(validation.reason);
   }
 
+  const fieldsValidation = validateStateFields(merged);
+  if (!fieldsValidation.valid) {
+    throw new Error(fieldsValidation.reason);
+  }
+
   if (merged.currentStationId != null) {
     const { nextStopStationId, nextPassStationId } = computeNextStops(
       trainStops,
@@ -166,6 +210,10 @@ export function updateTrainRunState(
     );
     merged.nextStopStationId = nextStopStationId;
     merged.nextPassStationId = nextPassStationId;
+  } else if (Object.prototype.hasOwnProperty.call(statePatch, 'currentStationId')) {
+    // currentStationIdが明示的にnull/undefinedへ更新された場合、前回算出値を持ち越さない
+    merged.nextStopStationId = undefined;
+    merged.nextPassStationId = undefined;
   }
 
   merged.updatedAt = now();

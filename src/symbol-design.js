@@ -164,11 +164,11 @@ export function generateSymbolSvg(symbolDesign, content = {}) {
   if (symbolDesign.svgTemplate) {
     return renderSvgTemplate(symbolDesign.svgTemplate, {
       text: escapeXmlText(text),
-      bgColor,
-      textColor,
+      bgColor: escapeXmlAttr(bgColor),
+      textColor: escapeXmlAttr(textColor),
       width,
       height,
-      fontFamily,
+      fontFamily: escapeXmlAttr(fontFamily),
       fontSize,
     });
   }
